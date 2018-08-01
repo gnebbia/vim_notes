@@ -70,6 +70,12 @@ We can inspect registers with:
 :reg
 ```
 
+In insert mode, we can paste the content of a register, simply by issuing:
+
+```vim
+c-r register_identifier
+```
+
 ## Visual Modes
 
 There are three main visual modes:
