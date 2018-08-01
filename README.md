@@ -206,9 +206,9 @@ vimi(){
 
 
 ## Navigate in a specific file type
-:g/^#/#    gives a summary of sections
-:g/def /# gives a list of functions in a python source
 
 
+* `:g/^#/#` "gives a summary of sections
+* `:g/def /#` "gives a list of functions in a python source
 
 
