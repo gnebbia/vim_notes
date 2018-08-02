@@ -13,32 +13,58 @@ vimtutor
 Here we want to inspect the very basic survival commands:
 
 Basic movements:
-* h,j,k,l: which is left, down, up, right
+```vim
+* `h,j,k,l`: which is left, down, up, right
     it is easier to remember if we think that 'j' seems an arrow going down
 * `:q`: quit
 * `:q!`: quit without saving
 * `:w`: save file
 * `:wq`: save file and quit
-* i: go to insert mode
-* <esc>: go to normal mode
+* `i`: go to insert mode
+* `<esc>`: go to normal mode
 * yy: copy line
-* dd: delete line or more precisely cut
-* p: paste laste copied thing
-* u: undo
-* <c-r>: redo
-* .: repeat last command
-* n[command]: repeat command n times
-* =: indent line
-* s/foo/bar: replace foo with bar on the current line only once
-* %s/foo/bar: replace foo with bar on the current file only once per line
-* s/foo/bar/g: replace foo with bar on the current line
-* %s/foo/bar/g: replace foo with bar on the current file
+* `dd`: delete line or more precisely cut
+* `p`: paste laste copied thing
+* `u`: undo
+* `<c-r>`: redo
+* `.`: repeat last command
+* `n[command]`: repeat command n times
+* `=`: indent line
+* `s/foo/bar`: replace foo with bar on the current line only once
+* `%s/foo/bar`: replace foo with bar on the current file only once per line
+* `s/foo/bar/g`: replace foo with bar on the current line
+* `%s/foo/bar/g`: replace foo with bar on the current file
+```
 
 
 ## Motions
 
+```vim
     * `()` "move to the beginning or end of a sentence
     * `{}` "move to the beginning or end of a paragraph
+    * `gf` "on a file name, opens the file in a new buffer
+    * `g;` "goes to the last place where a modification occurred (change list)
+    * `g,` "goes to the next place where a modification occurred (change list)
+    * `gg` "go to beginning of file
+    * `G`  "go to end of file
+    * `0`  "go to the beginning of line
+    * `$`  "go to the end of a line
+    * `H`  "move cursor to the top of the currently visible page
+    * `M   "move cursor to the middle of the currently visible page`
+    * `L`  "move cursor to the bottom of the currently visible page`
+    * `c-d` "page down
+    * `c-u` "page up
+    * `c-e` "scroll down one line
+    * `c-y` "scroll up one line
+```
+
+
+## Info on file
+
+
+```vim
+    * `c-g` "displays current file name
+```    
 
 
 ## Keymaps
@@ -145,24 +171,61 @@ We can inspect the list of buffers with:
 
 Most of the commands related to windows start with c-w, so:
 
-* c-w n "opens a new blank split window below
-* c-w s "opens a new same split horizontally
-* c-w v "opens a new same split vertically
+* c-w n "opens a new window with a new bufferbelow
+* c-w s "opens a new same split horizontally; also :sp
+* c-w v "opens a new same split vertically; also :vs
+* c-w w "cycles through open available windows
+* c-w c "closes the current window
+* c-w + "increase size of the current window
+* c-w - "decrease size of the current window
+* c-w = "set all window to equal size
+* c-w + "increase size of the current window
+* c-w H,J,K,L "move a window in the direction of h,j,k,l
+* c-w h,j,k,l "select the next window in the direction of h,j,k,l
+* :only "closes all the windows except the currently active one
+    
+
+
+
 
 ### Tabs
 
 :gt
 :gT
 :tabnew
+:tabclose
+
+
+## Sessions
+
+    * `:mksession filename` "saves session to filename
+    * `vim -S filename` "restore session from filename
+    * `:mks!` "saves again the session
+
+## Spelling
+
+```vim
+    * :set spell "turns on spell checking
+    * :set spelllang=[language abbreviation] "sets the spelling language
+    * ]s "jumps to the next mistake
+    * [s "jumps to the previous mistake
+    * z= "checks for spelling suggestions
+    * zg "adds word to regular dictionary
+    * zG "adds word to the current session dictionary
+    * zug "remove word from the current session dictionary
+    * zuG "adds word from the current session dictionary
+```
 
 ### Appendix A: Math
 
 
 On a number we can do:
 
+```
 * c-a to increase
 * c-z to decrease it
 * in insert mode c-r= and type an operation vim will give us the result
+```
 
 ### Appendix B: Shell Tricks
 
@@ -195,6 +258,8 @@ programs like `figlet`.
 
 * Learn how to write a plugin for a specific language and have a template
 * Give perl capabilities for code evaluation directly in vim buffers
+* `ga` to show the equivalent ascii code of the character under cursor
+* Open command outputs in vim: `vim <(ls -la)`
 * Create in our shell rc file a `vimi` function which will work as the vim
     interpreter, so that we can create general purpose scripts with vimL, e.g.:
 ```sh
@@ -216,5 +281,6 @@ vimi(){
 
 * `:g/^#/#` "gives a summary of sections
 * `:g/def /#` "gives a list of functions in a python source
+
 
 
