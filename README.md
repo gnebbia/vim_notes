@@ -283,4 +283,3 @@ vimi(){
 * `:g/def /#` "gives a list of functions in a python source
 
 
-
