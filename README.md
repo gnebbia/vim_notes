@@ -14,12 +14,14 @@ Here we want to inspect the very basic survival commands:
 
 Basic movements:
 ```vim
+
 * `h,j,k,l`: which is left, down, up, right
     it is easier to remember if we think that 'j' seems an arrow going down
 * `:q`: quit
 * `:q!`: quit without saving
 * `:w`: save file
 * `:wq`: save file and quit
+* `ZZ`: save file and quit
 * `i`: go to insert mode
 * `<esc>`: go to normal mode
 * yy: copy line
@@ -56,6 +58,17 @@ Basic movements:
     * `c-u` "page up
     * `c-e` "scroll down one line
     * `c-y` "scroll up one line
+    * `t <char>` "move the cursor just before the character indicated
+    * `<n> t <char>` "move the cursor just before the nth occurrence of the 
+                     "character indicated
+    * `f <char>` "move the cursor on the character indicated
+    * `<n> f <char>` "move the cursor on the nth occurrence of the 
+                     "character indicated
+    * `/<string>` "move the cursor to the indicated string
+    * `<n>/<string>` "move the cursor to the nth occurrence of the indicated 
+                     "string
+    * `[[` "move the cursor to the previous textual section
+    * `]]` "move the cursor to the next textual section
 ```
 
 
@@ -205,15 +218,15 @@ Most of the commands related to windows start with c-w, so:
 ## Spelling
 
 ```vim
-    * :set spell "turns on spell checking
-    * :set spelllang=[language abbreviation] "sets the spelling language
-    * ]s "jumps to the next mistake
-    * [s "jumps to the previous mistake
-    * z= "checks for spelling suggestions
-    * zg "adds word to regular dictionary
-    * zG "adds word to the current session dictionary
-    * zug "remove word from the current session dictionary
-    * zuG "adds word from the current session dictionary
+    * `:set spell` "turns on spell checking
+    * `:set spelllang=[language abbreviation]` "sets the spelling language
+    * `]s` "jumps to the next mistake
+    * `[s` "jumps to the previous mistake
+    * `z=` "checks for spelling suggestions
+    * `zg` "adds word to regular dictionary
+    * `zG` "adds word to the current session dictionary
+    * `zug` "remove word from the current session dictionary
+    * `zuG` "adds word from the current session dictionary
 ```
 
 ### Appendix A: Math
@@ -253,6 +266,25 @@ A cool but somewhat useless thing is to print ascii art, for example by using
 programs like `figlet`.
 
 
+
+## Vim Commands Scripts
+
+We can automate vim commands, e.g., substitutions or some other kinds of
+modifications by writing a series of commands in a file, for example:
+
+```vim
+%s/ciao/hello/g
+%s/\\n/\r/g
+%s/\\t/    /g
+quit
+```
+
+now if we save this text in a file called `myscript.vim` we can execute on
+whatever file with:
+
+```vim
+vim -S myscript.vim textfile1 textfile2
+```
 
 ## Appendix C: Cool Ideas
 
