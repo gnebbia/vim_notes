@@ -13,7 +13,6 @@ vimtutor
 Here we want to inspect the very basic survival commands:
 
 Basic movements:
-```vim
 
 * `h,j,k,l`: which is left, down, up, right
     it is easier to remember if we think that 'j' seems an arrow going down
@@ -36,48 +35,43 @@ Basic movements:
 * `%s/foo/bar`: replace foo with bar on the current file only once per line
 * `s/foo/bar/g`: replace foo with bar on the current line
 * `%s/foo/bar/g`: replace foo with bar on the current file
-```
+* `!!`: gives me an input line for a shell command
 
 
 ## Motions
 
-```vim
-    * `()` "move to the beginning or end of a sentence
-    * `{}` "move to the beginning or end of a paragraph
-    * `gf` "on a file name, opens the file in a new buffer
-    * `g;` "goes to the last place where a modification occurred (change list)
-    * `g,` "goes to the next place where a modification occurred (change list)
-    * `gg` "go to beginning of file
-    * `G`  "go to end of file
-    * `0`  "go to the beginning of line
-    * `$`  "go to the end of a line
-    * `H`  "move cursor to the top of the currently visible page
-    * `M   "move cursor to the middle of the currently visible page`
-    * `L`  "move cursor to the bottom of the currently visible page`
-    * `c-d` "page down
-    * `c-u` "page up
-    * `c-e` "scroll down one line
-    * `c-y` "scroll up one line
-    * `t <char>` "move the cursor just before the character indicated
-    * `<n> t <char>` "move the cursor just before the nth occurrence of the 
-                     "character indicated
-    * `f <char>` "move the cursor on the character indicated
-    * `<n> f <char>` "move the cursor on the nth occurrence of the 
-                     "character indicated
-    * `/<string>` "move the cursor to the indicated string
-    * `<n>/<string>` "move the cursor to the nth occurrence of the indicated 
-                     "string
-    * `[[` "move the cursor to the previous textual section
-    * `]]` "move the cursor to the next textual section
-```
+* `()` "move to the beginning or end of a sentence
+* `{}` "move to the beginning or end of a paragraph
+* `gf` "on a file name, opens the file in a new buffer
+* `g;` "goes to the last place where a modification occurred (change list)
+* `g,` "goes to the next place where a modification occurred (change list)
+* `gg` "go to beginning of file
+* `G`  "go to end of file
+* `0`  "go to the beginning of line
+* `$`  "go to the end of a line
+* `H`  "move cursor to the top of the currently visible page
+* `M`  "move cursor to the middle of the currently visible page
+* `L`  "move cursor to the bottom of the currently visible page
+* `c-d` "page down
+* `c-u` "page up
+* `c-e` "scroll down one line
+* `c-y` "scroll up one line
+* `t <char>` "move the cursor just before the character indicated
+* `<n> t <char>` "move the cursor just before the nth occurrence of the 
+                 "character indicated
+* `f <char>` "move the cursor on the character indicated
+* `<n> f <char>` "move the cursor on the nth occurrence of the 
+                 "character indicated
+* `/<string>` "move the cursor to the indicated string
+* `<n>/<string>` "move the cursor to the nth occurrence of the indicated 
+                 "string
+* `[[` "move the cursor to the previous textual section
+* `]]` "move the cursor to the next textual section
 
 
 ## Info on file
 
-
-```vim
-    * `c-g` "displays current file name
-```    
+* `c-g` "displays the current file name
 
 
 ## Keymaps
@@ -93,6 +87,7 @@ So the `i` means "insert mode" since this mapping will work in insert mode.
 The `nore` means non-recursive, notice that every map is non recursive, 
 since recursive mappings nowadays with all these plugins existing, 
 could cause problems.
+
 
 ## Common Options
 
@@ -119,19 +114,17 @@ c-r register_identifier
 
 There are three main visual modes:
 
-    * v
-    * V
-    * c-v
+* v
+* V
+* c-v
 
 we can change a block of text by doing:
 
-    c-v "then we select the text we are interested in
-    c text we want to insert
-    <esc>
+c-v "then we select the text we are interested in c text we want to insert <esc>
 
 instead of pressing `c` after the selection we could also have typed:
-    * I "to insert before text
-    * A "to insert after text
+* I "to insert before text
+* A "to insert after text
 
 This is a good way to change text within a block.
 
@@ -140,13 +133,21 @@ This is a good way to change text within a block.
 
 We can insert text from files by doing:
 
+```vim
 :r filename.txt
+```
 
 this can be useful also for templates.
 
 We can also print the output of a command into our current buffer with:
-
+```vim
 :r! command
+```
+
+Another way to print the output from a command is:
+```vim
+:r !command -flag1 --option1
+```
 
 
 ## Buffers, Windows and Tabs
@@ -196,24 +197,25 @@ Most of the commands related to windows start with c-w, so:
 * c-w H,J,K,L "move a window in the direction of h,j,k,l
 * c-w h,j,k,l "select the next window in the direction of h,j,k,l
 * :only "closes all the windows except the currently active one
-    
+
 
 
 
 
 ### Tabs
 
-:gt
-:gT
-:tabnew
-:tabclose
+* :gt
+* :gT
+* :tabnew
+* :tabclose
 
 
 ## Sessions
 
-    * `:mksession filename` "saves session to filename
-    * `vim -S filename` "restore session from filename
-    * `:mks!` "saves again the session
+* `:mksession filename` "saves session to filename
+* `vim -S filename` "restore session from filename
+* `:mks!` "saves again the session
+
 
 ## Spelling
 
@@ -229,18 +231,17 @@ Most of the commands related to windows start with c-w, so:
     * `zuG` "adds word from the current session dictionary
 ```
 
-### Appendix A: Math
 
+## Appendix A: Math
 
 On a number we can do:
 
-```
 * c-a to increase
 * c-z to decrease it
 * in insert mode c-r= and type an operation vim will give us the result
-```
 
-### Appendix B: Shell Tricks
+
+## Appendix B: Shell Tricks
 
 We can pause the vim execution and go to a terminal with a simple:
 
@@ -306,12 +307,15 @@ vimi(){
 ```
 
 
+## Navigate through the docs
+
+* :help or :h
+* :helpgrep or :helpg  and then :cn or :cp to browse different matches
 
 
 ## Navigate in a specific file type
 
-
 * `:g/^#/#` "gives a summary of sections
 * `:g/def /#` "gives a list of functions in a python source
-
-
+* `:g/^$/d` " deletes all blank lines, useful especially when some
+            " lines are selected visually

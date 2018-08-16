@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+
+
+    <html itemscope itemtype="http://schema.org/QAPage" class="html__responsive">
+
+    <head>
+
+        <title>vim, switching between files rapidly using vanilla Vim (no plugins) - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content= "website" />
+        <meta property="og:url" content="https://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins/16084326"/>
+        <meta property="og:site_name" content="Stack Overflow" />
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded" />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:domain" content="stackoverflow.com"/>
+        <meta name="twitter:title" property="og:title" itemprop="title name" content="vim, switching between files rapidly using vanilla Vim (no plugins)" />
+        <meta name="twitter:description" property="og:description" itemprop="description" content="I understand that limiting myself to vanilla Vim (not using plugins) limits the power of the editor, but as I switch between different machines frequently, it is often too much trouble to move my " />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.sstatic.net/Js/stub.en.js?v=1dca77f3b471"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=bfa43f7a5209">
+        <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary-unified.css?v=3094a8b19813">
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;vim, switching between files rapidly using vanilla Vim (no plugins)&#39;" href="/feeds/question/16082991">
+            <meta name="twitter:app:country" content="US" />
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:iphone" content="871299723" />
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins/16084326" />
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:ipad" content="871299723" />
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins/16084326" />
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins/16084326">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:16082991});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '16082991');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+                <script>
+        StackExchange.init({"locale":"en","serverTime":1533659350,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"d4cdeaed4cb2aa32d6608f0e47034e36da8e0b903e2e3d05aa8fea25789721eb","tid":"5fed41ec-7bcc-deba-9219-8f34bf2df385","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"hero_signup_button":{"v":"team_create_cta_b","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"userMessaging":{"showNewFeatureNotice":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"channels":{"removeExtraBillingAndShippingFields":true},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"349a892f808d","js/moderator.en.js":"b12b1794a6b5","js/full-anon.en.js":"8e051090cd6e","js/full.en.js":"ce34c9517dcd","js/wmd.en.js":"2d1a6ddb3525","js/mobile.en.js":"13ddd7009887","js/help.en.js":"7a31c9feb96c","js/tageditor.en.js":"4711c6761602","js/tageditornew.en.js":"f8d226470de8","js/inline-tag-editing.en.js":"e7aa31e8eba1","js/revisions.en.js":"be10a4167571","js/review.en.js":"b35168c85a0f","js/tagsuggestions.en.js":"505ddd862f8f","js/post-validation.en.js":"15d479ab037f","js/explore-qlist.en.js":"726bf7958c2a","js/events.en.js":"3731eed5891a","js/keyboard-shortcuts.en.js":"898eeb93541d","js/external-editor.en.js":"e8011e0cde57","js/adops.en.js":"22a9bd59b1e9","js/external-editor.en.js":"e8011e0cde57","js/snippet-javascript.en.js":"745e5f40bcd0","js/snippet-javascript-codemirror.en.js":"0f6c2a854e49"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    </head>
+        <body class="question-page unified-theme new-topbar">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar _fixed top-bar__network">
+    <div class="-container">
+        <div class="-main">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
+                                <a href="https://stackoverflow.com" class="-logo js-gps-track"
+                        data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+
+        </div>
+
+            <form id="search" action=/search method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="f-input js-search-field " />
+                        <button type="submit" aria-label="Search..." class="s-btn s-btn__primary btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon mx0 iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></button>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></a></li>
+            <li class="-item">
+        <a href="https://stackexchange.com/users/?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"/></svg>
+            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
+        </a>
+    </li>
+    <li class="-item">
+        <a href="https://stackexchange.com/users/?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"/></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+    <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"/></svg>
+    </a></li>
+
+    <li class="-item">
+        <a href="https://stackexchange.com" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 174 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"/></svg>
+        </a>
+    </li>
+
+            <li class="-ctas">
+                        <a href="https://stackoverflow.com/users/login?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f16082991%2fvim-switching-between-files-rapidly-using-vanilla-vim-no-plugins%2f16084326" class="login-link s-btn btn-topbar-clear py8" rel="nofollow">Log In</a>
+                        <a href="https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8 btn-topbar-primary" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign Up</a>
+
+            </li>
+
+    <li class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://stackoverflow.com"
+       class="current-site-link site-link js-gps-track grid gs8 gsx"
+       data-id="1"
+       data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:14 })"
+>help</a>
+                    <a href="https://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+            </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="552"
+       data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:10 })"
+>Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f16082991%2fvim-switching-between-files-rapidly-using-vanilla-vim-no-plugins%2f16084326" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:11 })"
+>log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+            <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+    <div id="js-gdpr-consent-banner" class="p16 bg-black-700 fc-white ps-fixed b0 l0 r0 z-banner" role="banner" aria-hidden="false">
+        <div class="wmx10 mx-auto grid grid__center jc-spacebetween gs8 gsx" role="alertdialog" aria-describedby="notice-message">
+            <div class="grid--cell" aria-label="notice-message">
+                <p class="mb0 lh-lg">
+                    This site uses cookies to deliver our services and to show you relevant ads and job listings. 
+By using our site, you acknowledge that you have read and understand our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/cookie-policy">Cookie Policy</a>, <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a>, and our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/terms-of-service/public">Terms of Service</a>. 
+Your use of Stack Overflow’s Products and Services, including the Stack Overflow Network, is subject to these policies and terms.
+                </p>
+            </div>
+            <div class="grid--cell ml-auto" aria-label="notice-dismiss">
+                <button class="s-btn s-btn__inverted fc-white bg-black-700 baw0 p16 js-notice-close" role="status" aria-hidden="true">
+                    <svg aria-hidden="true" class="svg-icon m0 iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+    
+
+
+
+
+
+
+
+
+<div class="old-hero hero-container _fixed js-dismissable-hero" data-campaign-name="stk">
+    <div class="-container grid jc-sp-between ai-center md:fd-column md:pr32">
+        <div class="fl1 mr16 md:mb24">
+            <p class="-title"><strong>Join Stack Overflow</strong> to learn, share knowledge, and build your career.</p>
+        </div>
+
+        <div class="s-signup _hero fl1">
+            <div id="openid-buttons" class="-social ws-nowrap">
+                <a class="btn-outlined -white _medium _block" href="/users/signup?ssrc=hero&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f16082991%2fvim-switching-between-files-rapidly-using-vanilla-vim-no-plugins%2f16084326" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Question Hero&quot;,null,null]">
+                        <span class="sm:d-none">Email Sign Up</span>
+                        <span class="d-none sm:d-inline">Sign Up</span>
+                    
+                </a>
+                <span class="-or sm:d-none">or sign in with</span>
+                    <div class="major-provider btn _block _medium sm:d-none _google" data-provider='google' data-oauthserver='https://accounts.google.com/o/oauth2/auth' data-oauthversion='2.0'
+                         data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Google&quot;,&quot;Question Hero&quot;,null,null]">
+<svg aria-hidden="true" class="svg-icon native iconGoogle" width="18" height="18" viewBox="0 0 18 18"><g><path d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z" fill="#4285F4"/><path d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z" fill="#34A853"/><path d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z" fill="#FBBC05"/><path d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z" fill="#EA4335"/></g></svg>                                                Google
+                    </div>
+                    <div class="major-provider btn _block _medium sm:d-none _facebook" data-provider='facebook' data-oauthserver='https://www.facebook.com/v2.0/dialog/oauth' data-oauthversion='2.0'
+                         data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Facebook&quot;,&quot;Question Hero&quot;,null,null]">
+                        <svg aria-hidden="true" class="svg-icon iconFacebook" width="18" height="18" viewBox="0 0 18 18"><path d="M1.88 1C1.4 1 1 1.4 1 1.88v14.24c0 .48.4.88.88.88h7.67v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h4.08c.48 0 .88-.4.88-.88V1.88c0-.48-.4-.88-.88-.88H1.88z" fill="#3C5A96"/></svg>                        Facebook
+                    </div>
+                                    <a href="#" class="js-dismiss js-hero-mini-disabled -dismiss md:ps-absolute" title="dismiss"><svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"/></svg></a>
+            </div>
+
+            <form id="login-form" action="/users/signup?ssrc=hero&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f16082991%2fvim-switching-between-files-rapidly-using-vanilla-vim-no-plugins%2f16084326" method="POST">
+
+                <input type="hidden" name="fkey" value="d4cdeaed4cb2aa32d6608f0e47034e36da8e0b903e2e3d05aa8fea25789721eb">
+
+                <input type="hidden" name="ssrc" value="" />
+
+                <input type="hidden" id="oauth_version" name="oauth_version" />
+                <input type="hidden" id="oauth_server" name="oauth_server" />
+
+                <div id="se-login-fields">
+                    <input type="hidden" name="legalLinksShown" value="0" />
+                </div>
+            </form>
+            <script>
+                StackExchange.ready(function () {
+                    StackExchange.InlineAuth.init();
+                })
+            </script>
+        </div>
+    </div>
+</div><script>
+    StackExchange.ready(function () {
+        StackExchange.Hero.init("stk", "a");
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;
+        }
+
+        $('.js-cta-button').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+
+        // TODO: we should review the class names and whatnot in use here. Older heroes use id selectors, the newer
+        // sticky question hero on SO has a .js-dismiss class instead, but it's apparently not used anywhere... 
+        // It's not great. Ideally we'd have a set of classes in the partials above that would correspond to 
+        // the behaviours we want here in a more clear way. 
+
+        // sticky question-page hero at the bottom of the page on SO
+        $('.js-dismiss').on('click', function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+            });
+            StackExchange.Hero.dismiss();
+            $(".js-dismissable-hero").fadeOut("fast");
+        });
+
+        // non-SO style hero has a two-step minimize + dismiss process
+        $('.js-dismissable-hero #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+              });
+
+            StackExchange.Hero.dismiss();
+
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $(".js-dismissable-hero").fadeOut("fast", function () {
+                        $(".js-dismissable-hero").replaceWith(data);
+                        $(".js-herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+</script>
+    <div class="container  ">
+                
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+        <nav role="navigation">
+            <ol class="nav-links">
+                <li>    <li>
+        <a
+            href="/"
+            class="pl8 js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+</li>
+                <li>
+                    <ol class="nav-links">
+                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+                            <li class=" youarehere">
+        <a id="nav-questions"
+            href="/questions"
+            class="pl8 js-gps-track nav-links--link -link__with-icon"
+            
+            data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24z"/></svg>                <span class="-link--channel-name">Stack Overflow</span>
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags"
+            href="/tags"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users"
+            href="/users"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-jobs"
+            href="/jobs?med=site-ui&amp;ref=jobs-tab"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
+Jobs        </a>
+    </li>
+                                            </ol>
+                </li>
+                    <li>
+                        <ol class="nav-links">
+                                <li class="p6">
+                                    <div class="ba bc-black-2 bar-sm p16 grid fd-column ps-relative overflow-hidden">
+                                        <strong class="grid--cell">Teams</strong>
+                                        <span class="grid--cell mt2 fs-caption fc-medium">
+                                            Q&amp;A for work
+                                        </span>
+                                        <a href="https://stackoverflow.com/teams"
+                                            class="js-gps-track s-btn s-btn__outlined ta-center grid--cell mt12"
+                                            data-gps-track="teams.create.left-sidenav.click">Create Team
+                                        </a>
+
+                                        <div class="ps-absolute t4 rn6">
+                                            <svg width="53" height="49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M49 11l.2 31H18.9L9 49v-7H4V8h31" fill="#CCEAFF" /><path d="M44.5 19v-.3l-.2-.1-18-13-.1-.1H.5v33h4V46l.8-.6 9.9-6.9h29.3V19z" stroke="#1060E1" stroke-miterlimit="10" /><path d="M31 2l6-1.5 7 2V38H14.9L5 45v-7H1V6h25l5-4z" fill="#fff" /><path d="M7 16.5h13m-13 6h14m-14 6h18" stroke="#1060E1" stroke-miterlimit="10" /><path d="M39 30a14 14 0 1 0 0-28 14 14 0 0 0 0 28z" fill="#FFB935" /><path d="M50.5 14a13.5 13.5 0 1 1-27 0 13.5 13.5 0 0 1 27 0z" stroke="#F48024" stroke-miterlimit="10" /><path d="M32.5 21.5v-8h9v8h-9zm2-9.5V9.3A2.5 2.5 0 0 1 37 6.8a2.5 2.5 0 0 1 2.5 2.5V12h-5zm2 3v2m1-2v2" stroke="#fff" stroke-miterlimit="10" /></svg>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ol>
+                    </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+
+<div itemscope itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+<style>.everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty{                height:90px;width:728px;box-sizing:border-box;
+}</style>
+        <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div>            <div id="question-header" class="grid">
+                    <h1 itemprop="name" class="grid--cell fs-headline1 fl1"><a href="/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins" class="question-hyperlink">vim, switching between files rapidly using vanilla Vim (no plugins)</a></h1>
+
+            
+
+
+
+<div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
+            <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary" >Ask Question</a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="16082991"  id="question">
+
+    
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16082991">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">81</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>74</b></div>
+
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    <div class="post-text" itemprop="text">
+
+<p>I understand that limiting myself to vanilla Vim (not using plugins) limits the power of the editor, but as I switch between different machines frequently, it is often too much trouble to move my environment around everywhere. I want to just stay in vanilla Vim.</p>
+
+<p>Something that holds me back is the ability to quickly switch between files.
+I (believe at least) have a good understanding of <em>buffers</em>, <em>windows</em>, <em>tabs</em>, as well as netrw (<code>Vex</code>, <code>Ex</code>, etc). </p>
+
+<p>But in an editor such as <a href="https://www.sublimetext.com/">Sublime Text</a>, I can just type <kbd>ctrl</kbd>-<kbd>p</kbd> and instantly I am at the file.</p>
+
+<p>I know that I can drop down to the shell, but I wonder if there are any other "hidden" secrets to rapidly switching between files in Vim based off more than just the filename.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/vim" class="post-tag" title="show questions tagged &#39;vim&#39;" rel="tag">vim</a> 
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/q/16082991" title="short permalink to this question" class="short-link" id="link-post-16082991">share</a><span class="lsep">|</span><a href="/posts/16082991/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </div>
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/16082991/revisions" title="show all edits to this post">edited <span title="2016-05-13 18:45:31Z" class="relativetime">May 13 '16 at 18:45</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+    <div class="post-signature owner grid--cell fl0">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2013-04-18 12:28:57Z" class="relativetime">Apr 18 '13 at 12:28</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2295034/jonathan-brink"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/aSFT0.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2295034/jonathan-brink">Jonathan.Brink</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 10,892" dir="ltr">10.9k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="41 silver badges"><span class="badge2"></span><span class="badgecount">41</span></span><span title="75 bronze badges"><span class="badge3"></span><span class="badgecount">75</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+
+                
+    <div class="post-layout--right">
+	    <div id="comments-16082991" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+
+    <li id="comment-22959389" class="comment js-comment " data-comment-id="22959389">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">This doesn&#39;t answer your question, but it might persuade you to consider using plugins: <a href="http://dudarev.com/blog/keep-vim-settings-and-plugins-in-git-repo/" rel="nofollow noreferrer">dudarev.com/blog/keep-vim-settings-and-plugins-in-git-repo</a></span>
+                    &ndash;&nbsp;<a href="/users/512652/ajwood"
+                       title="5,732 reputation"
+                       class="comment-user">ajwood</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-18 12:35:10Z" class="relativetime-clean">Apr 18 '13 at 12:35</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-22959878" class="comment js-comment " data-comment-id="22959878">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">I personally sync my settings with Dropbox. It&#39;s clumsy but it more or less works without having to think about it. The one plugin I use and know works well for what you want is Command-T (<a href="https://github.com/wincent/Command-T" rel="nofollow noreferrer">github.com/wincent/Command-T</a>). Ctrl-P could be an alternative (<a href="http://www.vim.org/scripts/script.php?script_id=3736" rel="nofollow noreferrer">vim.org/scripts/script.php?script_id=3736</a>).</span>
+                    &ndash;&nbsp;<a href="/users/821995/f-x"
+                       title="3,351 reputation"
+                       class="comment-user">F.X.</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-18 12:48:35Z" class="relativetime-clean">Apr 18 '13 at 12:48</span></span>
+                        <span title="this comment was edited 3 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-37126690" class="comment js-comment " data-comment-id="37126690">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">Have you seen <a href="http://www.danielmiessler.com/study/vim/" rel="nofollow noreferrer">danielmiessler.com/study/vim</a>? He has the very smart practive of putting his vimrc + all the plugns he needs into Github ... anmywhere he goes he can clone it and voila, Vim is exactly as he likes. Brilliant</span>
+                    &ndash;&nbsp;<a href="/users/622760/bobox"
+                       title="159 reputation"
+                       class="comment-user">bobox</a>
+                <span class="comment-date" dir="ltr"><span title="2014-06-06 06:06:01Z" class="relativetime-clean">Jun 6 '14 at 6:06</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-37732579" class="comment js-comment " data-comment-id="37732579">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">@bobox, tens of thousands of people do that; there&#39;s nothing extraordinary about that.</span>
+                    &ndash;&nbsp;<a href="/users/546861/romainl"
+                       title="122,496 reputation"
+                       class="comment-user">romainl</a>
+                <span class="comment-date" dir="ltr"><span title="2014-06-24 19:30:55Z" class="relativetime-clean">Jun 24 '14 at 19:30</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-16082991" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>        </div>
+</div>
+
+
+
+        <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="6">
+                                6 Answers
+                                <span style="display:none;" itemprop="answerCount">6</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="16084326"></a>
+<div id="answer-16084326" class="answer accepted-answer" data-answerid="16084326"  itemscope itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16084326">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">184</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>The closest equivalent ("closest", not "exact") to ST2's <kbd>Ctrl</kbd>+<kbd>P</kbd> is a plugin called, get ready… <a href="http://www.vim.org/scripts/script.php?script_id=3736" rel="noreferrer">CtrlP</a>. There are other similar plugins like <a href="http://www.vim.org/scripts/script.php?script_id=3025" rel="noreferrer">Command-T</a> or <a href="http://www.vim.org/scripts/script.php?script_id=1984" rel="noreferrer">FuzzyFinder</a>.</p>
+
+<p>I use CtrlP and I love it but I wholeheartedly support your decision to go "plugin-free". It's not the easiest way to go but it will pay off in the long run.</p>
+
+<hr>
+
+<p><strong>Opening files</strong></p>
+
+<p>The most basic way to open a file is <code>:e /path/to/filename</code>. Thankfully, you get tab-completion and wildcards: the classic <code>*</code> and a special one, <code>**</code>, which stands for "any subdirectory".</p>
+
+<p>Combining all of that, you can do:</p>
+
+<pre><code>:e **/*foo&lt;Tab&gt;
+</code></pre>
+
+<p>to choose from all the files containing <code>foo</code> in their name under the working directory or:</p>
+
+<pre><code>:e **/*foo/*bar&lt;Tab&gt;
+</code></pre>
+
+<p>to choose from all the files containing <code>bar</code> in their name under any subdirectory containing <code>foo</code> in its name, anywhere under the working directory.</p>
+
+<p>Of course, that works for <code>:tabe[dit]</code>, <code>:sp[lit]</code> and <code>:vs[plit]</code>, too.</p>
+
+<p>Those commands are limited to one file, though. Use <code>:next</code> to open multiple files:</p>
+
+<pre><code>:next **/*.js
+</code></pre>
+
+<p>and take a look at <code>:help arglist</code>.</p>
+
+<hr>
+
+<p><strong>Jumping between buffers</strong></p>
+
+<p><code>:b[uffer]</code> is the basic buffer-switching command:</p>
+
+<pre><code>:b4         " switch to buffer number 4
+:bn         " switch to next buffer in the buffer list
+:bp         " switch to previous buffer in the buffer list
+:bf         " switch to first buffer in the buffer list
+:bl         " switch to last buffer in the buffer list
+:b foo&lt;Tab&gt; " switch by buffer name with tab-completion
+:b#         " switch to the alternate file
+</code></pre>
+
+<p>Note that many of these commands and their relatives accept a count.</p>
+
+<p>The <code>:ls</code> command shows you a list of loaded buffers. It is a bit "special", though: buffers are assigned a number when they are created so you can have a list that looks like <code>1 2 5</code> if you delete buffers. This is a bit awkward, yes, and that makes switching to a buffer by its number a bit too troublesome. Prefer switching by partial name, <code>:b foo&lt;Tab&gt;</code> or cycling, <code>:bn :bp</code>.</p>
+
+<p>Anyway, here is a cool mapping that lists all loaded buffers and populates the prompt for you, waiting for you to type the number of a buffer and press <code>&lt;enter&gt;</code>:</p>
+
+<pre><code>nnoremap gb :ls&lt;CR&gt;:b&lt;Space&gt;
+</code></pre>
+
+<p>With this mapping, switching to another buffer is as simple as:</p>
+
+<pre><code>gb
+(quickly scanning the list)
+3&lt;CR&gt;
+</code></pre>
+
+<p>or:</p>
+
+<pre><code>gb
+(quickly scanning the list)
+foo&lt;tab&gt;&lt;CR&gt;
+</code></pre>
+
+<p>The idea comes from this image <a href="http://of-vim-and-vigor.blogspot.ro/p/vim-vigor-comic.html" rel="noreferrer">taken from Bairui's collection of Vim infographics</a>:</p>
+
+<p><img src="https://2.bp.blogspot.com/-d1GaUBk-Y10/TyFhskmCYRI/AAAAAAAAARQ/CIEx1V7FLqg/s1600/vim-and-vigor-004-flying_is_faster_than_cycling.png" alt="Flying vs cycling"></p>
+
+<p>Vim also has <code>&lt;C-^&gt;</code> (or <code>&lt;C-6&gt;</code> on some keyboards)—the normal mode equivalent of <code>:b#</code>—to jump between the current buffer and the previous one. Use it if you often alternate between two buffers.</p>
+
+<p>Read all about buffers in <code>:help buffers</code>.</p>
+
+<hr>
+
+<p><strong>Go to declaration</strong></p>
+
+<p>Within a file, you can use <code>gd</code> or <code>gD</code>. </p>
+
+<p>Within a project, Vim's "tags" feature is your friend but you'll need an external code indexer like ctags or cscope. The most basic commands are <code>:tag foo</code> and <code>&lt;C-]&gt;</code> with the cursor on a method name. Both tools are well integrated into Vim: see <code>:help tags</code>, <code>:help ctags</code> and <code>:help cscope</code>.</p>
+
+<p>For what it's worth, I use tag navigation extensively to move within a project (using CtrlP's <code>:CtrlPTag</code> and <code>:CtrlPBufTag</code> commands, mostly, but the buit-in ones too) and my favorite "generic" buffer switching method is by name.</p>
+
+<hr>
+
+<p><strong>Deploying your config</strong></p>
+
+<p>A lot of Vim users put their config under version control which makes it <em>very</em> quick and easy to install your own config on a new machine. Think about it.</p>
+
+<hr>
+
+<p><strong><em>EDIT</em></strong></p>
+
+<p>A few months ago, I had to work on a remote machine with an outdated Vim. I could have installed a proper Vim and cloned my own beloved config but I decided to travel light, this time, in order to "sharpen the saw". I quickly built a minimalist <code>.vimrc</code> and revisited a couple of half forgotten native features. After that gig, I decided CtrlP wasn't that necessary and got rid of it: native features and custom mappings are not as sexy but they get the job done without much dependencies.</p>
+
+<hr>
+
+<p><strong>Juggling with files</strong></p>
+
+<pre><code>set path=.,**
+nnoremap &lt;leader&gt;f :find *
+nnoremap &lt;leader&gt;s :sfind *
+nnoremap &lt;leader&gt;v :vert sfind *
+nnoremap &lt;leader&gt;t :tabfind *
+</code></pre>
+
+<p><code>:find</code> is a truly great command as soon as you <code>set path</code> correctly. With my settings, <code>,ffoo&lt;Tab&gt;</code> will find all the files containing <code>foo</code> under the current directory, recursively. It's quick, intuitive and lightweight. Of course, I benefit from the same completion and wildcards as with <code>:edit</code> and friends.</p>
+
+<p>To make the process even quicker, the following mappings allow me to skip entire parts of the project and find files recursively under the directory of the current file:</p>
+
+<pre><code>nnoremap &lt;leader&gt;F :find &lt;C-R&gt;=expand('%:h').'/*'&lt;CR&gt;
+nnoremap &lt;leader&gt;S :sfind &lt;C-R&gt;=expand('%:h').'/*'&lt;CR&gt;
+nnoremap &lt;leader&gt;V :vert sfind &lt;C-R&gt;=expand('%:h').'/*'&lt;CR&gt;
+nnoremap &lt;leader&gt;T :tabfind &lt;C-R&gt;=expand('%:h').'/*'&lt;CR&gt;
+</code></pre>
+
+<p><strong>WARNING! The <code>path</code> option is <em>extremely</em> powerful. The value above—<code>.,**</code>—works <em>for me</em> but the languages I use don't have a standard library. The <em>proper</em> value depends entirely on <em>your</em> needs.</strong></p>
+
+<hr>
+
+<p><strong>Juggling with buffers</strong></p>
+
+<pre><code>set wildcharm=&lt;C-z&gt;
+nnoremap &lt;leader&gt;b :buffer &lt;C-z&gt;&lt;S-Tab&gt;
+nnoremap &lt;leader&gt;B :sbuffer &lt;C-z&gt;&lt;S-Tab&gt;
+</code></pre>
+
+<p>The mappings above list the available buffers in the "wildmenu" with an empty prompt, allowing me to either navigate the menu with <code>&lt;Tab&gt;</code> or type a few letters and <code>&lt;Tab&gt;</code> again to narrow down the list. Like with the file mappings above, the process is quick and almost friction-less.</p>
+
+<pre><code>nnoremap &lt;PageUp&gt;   :bprevious&lt;CR&gt;
+nnoremap &lt;PageDown&gt; :bnext&lt;CR&gt;
+</code></pre>
+
+<p>Those mappings speak for themselves.</p>
+
+<hr>
+
+<p><strong>Juggling with tags</strong></p>
+
+<pre><code>nnoremap &lt;leader&gt;j :tjump /
+</code></pre>
+
+<p>This mapping uses regex search instead of whole word search so I can do <code>,jba&lt;Tab&gt;</code> to find tag <code>foobarbaz()</code>.</p>
+
+<p>Yes, fuzzy matching is addictive but you can be just as productive without it. And for a fraction of the cost.</p>
+
+<hr>
+
+<p><strong><em>MORE EDIT</em></strong></p>
+
+<p>A couple of additional tips/tricks…</p>
+
+<hr>
+
+<p><strong>Wildmenu options</strong></p>
+
+<p>The "wildmenu", enabled with <code>set wildmenu</code>, makes file/buffer navigation easier. Its behavior is governed by a bunch of options that are worth investigating:</p>
+
+<p><code>wildmode</code> tells Vim how you want the "wildmenu" to behave:</p>
+
+<pre><code>set wildmode=list:full
+</code></pre>
+
+<p><code>wildignore</code> filters out all the cruft:</p>
+
+<pre><code>set wildignore=*.swp,*.bak
+set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
+set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
+set wildignore+=tags
+set wildignore+=*.tar.*
+</code></pre>
+
+<p><code>wildignorecase</code> allows you to search for <code>foo</code> and find <code>Foo</code>:</p>
+
+<pre><code>set wildignorecase
+</code></pre>
+
+<hr>
+
+<p><strong>File marks</strong></p>
+
+<pre><code>augroup VIMRC
+  autocmd!
+
+  autocmd BufLeave *.css  normal! mC
+  autocmd BufLeave *.html normal! mH
+  autocmd BufLeave *.js   normal! mJ
+  autocmd BufLeave *.php  normal! mP
+augroup END
+</code></pre>
+
+<p>I recently found this gem in someone else's <code>~/.vimrc</code>. It creates a file mark at the exact position of the cursor whenever you leave a buffer so that, wherever you are, <code>'J</code> jumps to the latest JavaScript buffer you edited. Awesome.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/16084326" title="short permalink to this answer" class="short-link" id="link-post-16084326">share</a><span class="lsep">|</span><a href="/posts/16084326/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/16084326/revisions" title="show all edits to this post">edited <span title="2017-03-30 05:55:35Z" class="relativetime">Mar 30 '17 at 5:55</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-04-18 13:29:28Z" class="relativetime">Apr 18 '13 at 13:29</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/546861/romainl"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/SIhsx.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/546861/romainl">romainl</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 122,496" dir="ltr">122k</span><span title="12 gold badges"><span class="badge1"></span><span class="badgecount">12</span></span><span title="169 silver badges"><span class="badge2"></span><span class="badgecount">169</span></span><span title="205 bronze badges"><span class="badge3"></span><span class="badgecount">205</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-16084326" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="16"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+
+    <li id="comment-22986046" class="comment js-comment " data-comment-id="22986046">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">+1. I had no idea about the &quot;any subdirectory&quot; in combination with <code>:e</code> but I&#39;ll be using it <b>a lot</b> from now on. I marvel at the work that got into Ctrl-P and can learn a lot from it but it didn&#39;t work for me. I found it to be a bit slugish and as such interrupting my train of thought while working <i>(could be my system, my settings, myself but I didn&#39;t investigate)</i></span>
+                    &ndash;&nbsp;<a href="/users/52598/lieven-keersmaekers"
+                       title="45,592 reputation"
+                       class="comment-user">Lieven Keersmaekers</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-19 06:31:57Z" class="relativetime-clean">Apr 19 '13 at 6:31</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-22986169" class="comment js-comment " data-comment-id="22986169">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy"><code>**</code> is great, indeed.</span>
+                    &ndash;&nbsp;<a href="/users/546861/romainl"
+                       title="122,496 reputation"
+                       class="comment-user">romainl</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-19 06:36:28Z" class="relativetime-clean">Apr 19 '13 at 6:36</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-22986758" class="comment js-comment " data-comment-id="22986758">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">@LievenKeersmaekers, <a href="http://2.bp.blogspot.com/-d1GaUBk-Y10/TyFhskmCYRI/AAAAAAAAARQ/CIEx1V7FLqg/s1600/vim-and-vigor-004-flying_is_faster_than_cycling.png" rel="nofollow noreferrer">this</a> is where I got it from and <a href="http://of-vim-and-vigor.blogspot.fr/p/vim-vigor-comic.html" rel="nofollow noreferrer">this</a> is where the silly picture comes from. Thanks Bairui!</span>
+                    &ndash;&nbsp;<a href="/users/546861/romainl"
+                       title="122,496 reputation"
+                       class="comment-user">romainl</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-19 06:59:42Z" class="relativetime-clean">Apr 19 '13 at 6:59</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-47266328" class="comment js-comment " data-comment-id="47266328">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">This might be the single greatest answer ever.</span>
+                    &ndash;&nbsp;<a href="/users/1436792/craigp"
+                       title="295 reputation"
+                       class="comment-user">craigp</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-10 09:38:46Z" class="relativetime-clean">Apr 10 '15 at 9:38</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-53626406" class="comment js-comment " data-comment-id="53626406">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">Wish I could upvote this again!</span>
+                    &ndash;&nbsp;<a href="/users/2295034/jonathan-brink"
+                       title="10,892 reputation"
+                       class="comment-user owner">Jonathan.Brink</a>
+                <span class="comment-date" dir="ltr"><span title="2015-10-02 00:22:22Z" class="relativetime-clean">Oct 2 '15 at 0:22</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-16084326" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>16</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow everyoneloves__mid-leaderboard"></div>
+  
+<a name="16083437"></a>
+<div id="answer-16083437" class="answer" data-answerid="16083437"  itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16083437">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>The answer depends a lot on your preferences and circumstances. Some examples:</p>
+
+<ul>
+<li>If it's mostly two files (e.g. a C header and implementation file), <code>&lt;C-^&gt;</code> is very handy. In general, the <em>alternate file</em> is an important concept.</li>
+<li>If you use a large editor window, window <code>:split</code>s turn the problem of locating a buffer from locating the window (once you've got all buffers opened). You can use <code>[N]&lt;C-w&gt;&lt;C-w&gt;</code> to quickly switch to it.</li>
+<li>If you can memorize (a few) buffer numbers, the <code>:[N]b[uffer]</code> and <code>:[N]sb[uffer]</code> commands are quite handy; <code>:ls</code> tells you the numbers.</li>
+</ul>
+
+<p>Plugins (or at least custom mappings) can improve things a lot, and there's a whole variety on this topic on <a href="http://www.vim.org/" rel="nofollow">vim.org</a>. There are various mechanisms to distribute your config (Pathogen + GitHub, Dropbox, ...), or you could remotely edit server files through the <em>netrw</em> plugin that ships with Vim.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/16083437" title="short permalink to this answer" class="short-link" id="link-post-16083437">share</a><span class="lsep">|</span><a href="/posts/16083437/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-04-18 12:49:33Z" class="relativetime">Apr 18 '13 at 12:49</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/813602/ingo-karkat"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/e1844cebf36374d83a83c0e69003cd42?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/813602/ingo-karkat">Ingo Karkat</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 123,021" dir="ltr">123k</span><span title="13 gold badges"><span class="badge1"></span><span class="badgecount">13</span></span><span title="135 silver badges"><span class="badge2"></span><span class="badgecount">135</span></span><span title="179 bronze badges"><span class="badge3"></span><span class="badgecount">179</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-16083437" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+
+    <li id="comment-22960988" class="comment js-comment " data-comment-id="22960988">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">4</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">Would probably worth mentioning ctags, cscope, gtags, id, and friends. I find using uppercase marks to be very helpful. Use <code>mA</code> to store mark <code>A</code> and ````A``` to return. I find <i>netrw</i> much more useful after I learned about <code>:Rex</code> which returns to explorer. <code>:b</code>, <code>:e</code>, and many others can take wildcards like <code>*</code> and <code>**</code>. The <code>:b</code> command can take a partial filename. Combine that with <code>&lt;c-d&gt;</code> or the wildmenu you can get pretty far. As for plugins you can use something domain specific like rail.vim which provides rails specific navigation commands or something more general like CtrlP.</span>
+                    &ndash;&nbsp;<a href="/users/438329/peter-rincker"
+                       title="31,393 reputation"
+                       class="comment-user">Peter Rincker</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-18 13:18:59Z" class="relativetime-clean">Apr 18 '13 at 13:18</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-22962228" class="comment js-comment " data-comment-id="22962228">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body d-block">
+                <span class="comment-copy">@PeterRincker: +1 for mentioning about marks. I suggest constructing an answer with marks.</span>
+                    &ndash;&nbsp;<a href="/users/575508/helbreder"
+                       title="602 reputation"
+                       class="comment-user">Helbreder</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-18 13:48:34Z" class="relativetime-clean">Apr 18 '13 at 13:48</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-16083437" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="16089224"></a>
+<div id="answer-16089224" class="answer" data-answerid="16089224"  itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16089224">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>You can do wildcard tab completion on the command line without any plugins. e.g. </p>
+
+<pre><code>:e src/**/foo*&lt;tab&gt;
+</code></pre>
+
+<p>will let you cycle through all the files starting with 'foo' in the directory tree under ./src and select the one you want to edit.</p>
+
+<p>If you have already edited the file and it is still in a buffer then you can switch to it with:</p>
+
+<pre><code>:b foo&lt;tab&gt;
+</code></pre>
+
+<p>which will cycle through all the buffers with 'foo' in the path.
+You may need to set the wildmode and wildmenu options to get the behaviour you want.  I have</p>
+
+<pre><code>wildmode=longest:full
+wildmenu
+</code></pre>
+
+<p>in my .vimrc.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/16089224" title="short permalink to this answer" class="short-link" id="link-post-16089224">share</a><span class="lsep">|</span><a href="/posts/16089224/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-04-18 17:11:51Z" class="relativetime">Apr 18 '13 at 17:11</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/206417/dave-kirby"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/448da181fc6df1794b855848b84f0be9?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/206417/dave-kirby">Dave Kirby</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 18,423" dir="ltr">18.4k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="46 silver badges"><span class="badge2"></span><span class="badgecount">46</span></span><span title="75 bronze badges"><span class="badge3"></span><span class="badgecount">75</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-16089224" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-16089224" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="16099176"></a>
+<div id="answer-16099176" class="answer" data-answerid="16099176"  itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16099176">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Sometimes it is also handy to go sequentially through a list of files (e.g., if you did something like <code>vim *.php</code> to open several files at once). Then you can use <code>:n[ext]</code> (as well as <code>:prev[ious]</code>, <code>:fir[st]</code>, and <code>:la[st]</code>) for navigation (in addition to what was suggested in the other answers).</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/16099176" title="short permalink to this answer" class="short-link" id="link-post-16099176">share</a><span class="lsep">|</span><a href="/posts/16099176/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-04-19 07:12:12Z" class="relativetime">Apr 19 '13 at 7:12</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/476803/chris"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/a0957a413376168de79465b341c768d5?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/476803/chris">chris</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,445</span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="31 bronze badges"><span class="badge3"></span><span class="badgecount">31</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-16099176" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-16099176" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="16083693"></a>
+<div id="answer-16083693" class="answer" data-answerid="16083693"  itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16083693">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>If you are on a filename and want to jump to that file, <a href="http://vim.wikia.com/wiki/Open_file_under_cursor" rel="nofollow"><code>gf</code></a> will do it for you. I also like using <a href="http://ctags.sourceforge.net/" rel="nofollow">ctags</a>, which isn't a plugin; you just build the tags and can easily jump around your codebase. </p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/16083693" title="short permalink to this answer" class="short-link" id="link-post-16083693">share</a><span class="lsep">|</span><a href="/posts/16083693/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-04-18 13:01:15Z" class="relativetime">Apr 18 '13 at 13:01</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/28071/gpojd"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/bb6f9384123f54b352607b5fe7deb4fd?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/28071/gpojd">gpojd</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 17,402" dir="ltr">17.4k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="32 silver badges"><span class="badge2"></span><span class="badgecount">32</span></span><span title="66 bronze badges"><span class="badge3"></span><span class="badgecount">66</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-16083693" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-16083693" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="33970975"></a>
+<div id="answer-33970975" class="answer" data-answerid="33970975"  itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="33970975">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>If you want switch between files in vim editor, please see below answer</p>
+
+<p>First press <code>Esc</code> key to exit from edit mode.</p>
+
+<p>Then type <code>:e</code> to check current file path.</p>
+
+<p>if you want to go another file then  type <code>:e /path-of-file.txt/</code> using this you are able to switch.</p>
+
+<p>If you want to go previous file simply type <code>:e#</code> which switch to previous file path.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/33970975" title="short permalink to this answer" class="short-link" id="link-post-33970975">share</a><span class="lsep">|</span><a href="/posts/33970975/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2015-11-28 11:47:53Z" class="relativetime">Nov 28 '15 at 11:47</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/5129663/amol-udage"><div class="gravatar-wrapper-32"><img src="https://lh5.googleusercontent.com/-z8P0ivhj4wM/AAAAAAAAAAI/AAAAAAAAAAo/7JsXqgRUH8w/photo.jpg?sz=32" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/5129663/amol-udage">Amol Udage</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,464</span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="21 bronze badges"><span class="badge3"></span><span class="badgecount">21</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-33970975" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-33970975" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+                                    <a name='new-answer'></a>
+                        <form id="post-form" action="/questions/16082991/answer/submit" method="post"  class="post-form">
+                            <input type="hidden" id="post-id" value="16082991" />
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" />
+                            <input type="hidden" name="referrer" value=""/>
+                            <h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        var channelOptions = {
+            tags: "".split(" "),
+            id: "1"
+        };
+        initTagRenderer("".split(" "), "".split(" "), channelOptions);
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                noModals: false,
+                showLowRepImageUploadWarning: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor wz-element" data-wz-state="3,4,5,6,7,8">
+
+    <div style="position: relative;"> 
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar btr-sm"></div>
+            <textarea id="wmd-input" class="wmd-input wz-element s-input bar0" name="post-text" cols="92" rows="15" tabindex="101" data-wz-state="8" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="d4cdeaed4cb2aa32d6608f0e47034e36da8e0b903e2e3d05aa8fea25789721eb">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div style="position: relative;">
+                                
+                                            <div class="form-item dno new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="/users/login?ssrc=question_page&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f16082991%2fvim-switching-between-files-rapidly-using-vanilla-vim-no-plugins%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Google&quot;,&quot;New Post&quot;,null,null]">
+                            <svg aria-hidden="true" class="svg-icon native iconGoogle" width="18" height="18" viewBox="0 0 18 18"><g><path d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z" fill="#4285F4"/><path d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z" fill="#34A853"/><path d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z" fill="#FBBC05"/><path d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z" fill="#EA4335"/></g></svg> Sign up using Google
+                        </div>
+                        <div class="preferred-login facebook-login" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Facebook&quot;,&quot;New Post&quot;,null,null]">
+                            <svg aria-hidden="true" class="svg-icon iconFacebook" width="18" height="18" viewBox="0 0 18 18"><path d="M1.88 1C1.4 1 1 1.4 1 1.88v14.24c0 .48.4.88.88.88h7.67v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h4.08c.48 0 .88-.4.88-.88V1.88c0-.48-.4-.88-.88-.88H1.88z" fill="#3C5A96"/></svg> Sign up using Facebook
+                        </div>
+                        <div class="preferred-login stackexchange-login" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;New Post&quot;,null,null]">
+                            <svg aria-hidden="true" class="svg-icon native iconLogoGlyphXSm" width="18" height="18" viewBox="0 0 18 18"><g><path fill="#BCBBBB" d="M14 16v-5h2v7H2v-7h2v5z"/><path d="M5 15v-2h8v2H5zM12.09.72l4.5 6.06-1.2.9-4.51-6.06 1.21-.9zM8.34 4.3l.97-1.16 5.8 4.83-.96 1.16-5.8-4.83zm-1.9 3.36l.64-1.37 6.85 3.19-.63 1.37-6.85-3.2zM5.4 11.39l.38-1.67 7.42 1.48-.22 1.46-7.58-1.27z" fill="#F48024"/></g></svg> Sign up using Email and Password
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid" />
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false" />
+                    <input type="hidden" name="use-google" class="use-google" value="false" />
+                    <input type="button" class="submit-openid" value="Submit" style="display:none" />
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'https%3a%2f%2fstackoverflow.com%2fquestions%2f16082991%2fvim-switching-between-files-rapidly-using-vanilla-vim-no-plugins%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+                            </div>
+
+                                                            <div class="form-submit cbt grid gsx gs4">
+                                        <button id="submit-button" class="grid--cell s-btn s-btn__primary" type="submit" tabindex="120" autocomplete="off">
+Post Your Answer                                        </button>
+                                        <button class="grid--cell s-btn s-btn__danger discard-answer dno">Discard</button>
+                                                                            <p class="privacy-policy-agreement">
+                                            
+
+By clicking &quot;Post Your Answer&quot;, you acknowledge that you have read our updated <a href='https://stackoverflow.com/legal/terms-of-service/public' name='tos' target='_blank' class='-link'>terms of service</a>, <a href='https://stackoverflow.com/legal/privacy-policy' name='privacy' target='_blank' class='-link'>privacy policy</a> and <a href='https://stackoverflow.com/legal/cookie-policy' name='cookie' target='_blank' class='-link'>cookie policy</a>, and that your continued use of the website is subject to these policies.
+
+<input type="hidden" name="legalLinksShown" value="1" />
+                                        </p>
+                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you&#39;re looking for?                            Browse other questions tagged <a href="/questions/tagged/vim" class="post-tag" title="show questions tagged &#39;vim&#39;" rel="tag">vim</a>  or <a href="/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2013-04-18 12:28:57Z"><b>5 years, 3 months ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>23,449 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2017-03-30 05:55:35Z">1 year, 4 months ago</a></b></p>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+            
+            
+<div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div>
+            <div id="hireme"></div>
+<script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=f28c677e209b","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){i(l()?x.lib.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2'):x.lib)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){x.al&&z.push(function(){return a.load()})})(),n();a.cmd=z,a.dfp={load:w},a.options=x})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script>            <script>
+                var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,'mobile-below-question':!0};
+                clc.cmd = clc.cmd || [];
+                clc.cmd.push(function () { window.clc_request='AnESleeC_NUIAAAAAC9o9QACAAAAAgAAAAAFAAAAfHZpbXwAWP94ClX2ZMrtRQ'; clc.load(); });
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['false'],'so-tag':['vim']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+            </script>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="/q/17092590" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/17092590/equivalent-of-sublime-texts-goto-anything-i-e-command-p-in-vim?noredirect=1" class="question-hyperlink">Equivalent of Sublime Text&#39;s Goto Anything (i.e. Command + P) in vim</a>
+</div>
+<div class="spacer">
+	<a href="/q/26708822" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">146</div>
+	</a>
+	<a href="/questions/26708822/why-do-vim-experts-prefer-buffers-over-tabs?noredirect=1" class="question-hyperlink">Why do Vim experts prefer buffers over tabs?</a>
+</div>
+<div class="spacer">
+	<a href="/q/16580326" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">13</div>
+	</a>
+	<a href="/questions/16580326/how-to-open-files-with-pattern-recursively-in-vim?noredirect=1" class="question-hyperlink">How to open files with pattern recursively in vim</a>
+</div>
+<div class="spacer">
+	<a href="/q/32069492" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="/questions/32069492/how-do-i-open-previously-opened-buffer-in-vim?noredirect=1" class="question-hyperlink">How do I open previously opened buffer in Vim?</a>
+</div>
+<div class="spacer">
+	<a href="/q/39648234" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/39648234/how-to-make-switching-buffers-easier-in-vim?noredirect=1" class="question-hyperlink">How to make switching buffers easier in Vim?</a>
+</div>
+<div class="spacer">
+	<a href="/q/36961225" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/36961225/finding-files-in-rails-application-using-vim-whats-the-command?noredirect=1" class="question-hyperlink">Finding files in Rails application using Vim - Whats the command?</a>
+</div>			</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer"><a href="/q/53664" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">972</div></a><a href="/questions/53664/how-to-effectively-work-with-multiple-files-in-vim" class="question-hyperlink">How to effectively work with multiple files in Vim?</a></div><div class="spacer"><a href="/q/102384" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">328</div></a><a href="/questions/102384/using-vims-tabs-like-buffers" class="question-hyperlink">Using Vim&#39;s tabs like buffers</a></div><div class="spacer"><a href="/q/1205286" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">339</div></a><a href="/questions/1205286/renaming-the-current-file-in-vim" class="question-hyperlink">Renaming the current file in Vim</a></div><div class="spacer"><a href="/q/1269603" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">519</div></a><a href="/questions/1269603/to-switch-from-vertical-split-to-horizontal-split-fast-in-vim" class="question-hyperlink">To switch from vertical split to horizontal split fast in Vim</a></div><div class="spacer"><a href="/q/1430164" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">549</div></a><a href="/questions/1430164/differences-between-emacs-and-vim" class="question-hyperlink">Differences between Emacs and Vim</a></div><div class="spacer"><a href="/q/2372307" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">40</div></a><a href="/questions/2372307/opening-files-in-vim-using-fuzzy-search" class="question-hyperlink">Opening files in Vim using Fuzzy Search</a></div><div class="spacer"><a href="/q/3776117" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">904</div></a><a href="/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping" class="question-hyperlink">What is the difference between the remap, noremap, nnoremap and vnoremap mapping commands in vim?</a></div><div class="spacer"><a href="/q/5305137" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="/questions/5305137/switching-to-vim-window-by-name" class="question-hyperlink">Switching to VIM window by name</a></div><div class="spacer"><a href="/q/13038243" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="/questions/13038243/switching-quickly-between-versions" class="question-hyperlink">Switching quickly between versions</a></div><div class="spacer"><a href="/q/14657863" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">16</div></a><a href="/questions/14657863/console-editor-something-between-vim-and-nano" class="question-hyperlink">Console editor: something between VIM and nano?</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot"
+           class="js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/54066/has-any-passenger-airliner-ever-offered-forward-facing-windows" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Has any passenger airliner ever offered forward-facing windows?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/114713/dr-first-name-a-good-nickname-or-a-professional-cancer" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Dr. ‹First Name›: a good nickname or a &quot;professional cancer&quot;?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/170005/is-the-bus-load-legal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is the bus load legal?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/98250/is-this-work-legal-someone-promises-payment-for-converting-money-transfers-to-b" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is this work legal? Someone promises payment for converting money transfers to Bitcoin?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/444812/playing-around-with-a-rubiks-cube-in-tikz" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Playing around with a Rubik&#39;s Cube in TikZ
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/307690/understand-the-difference-between-two-stacks" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Understand the difference between two stacks
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/38121/how-advisable-is-it-to-end-a-love-story-on-a-downer" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How advisable is it to end a love story on a downer?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/117039/how-to-talk-to-client-who-refuses-to-pay-for-freelance-work" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to talk to client who refuses to pay for freelance work
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2874999/definitions-of-analytic-regular-holomorphic-differentiable-conformal-what-i" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Definitions of analytic, regular, holomorphic, differentiable, conformal: what implies what and do any imply that a function is a bijection?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/144612/why-is-all-this-exterior-trim-rotting-and-how-do-i-fix-it" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is all this exterior trim rotting and how do I fix it
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/129140/when-using-the-wish-spells-suggested-uses-will-the-caster-still-suffer" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When using the Wish Spell&#39;s suggested uses, will the caster still suffer?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/114793/proving-authorship-when-name-in-publications-does-not-match-name-in-passport" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Proving authorship when name in publications does not match name in passport
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/170110/calculate-the-sum-of-the-first-n-prime-numbers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Calculate the sum of the first n prime numbers
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/114834/do-postdocs-still-take-courses" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do postdocs still take courses?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/459175/which-grammar-to-talk-about-daily-tasks" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Which grammar to talk about daily tasks?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/38153/how-long-can-a-fantasy-novel-stay-in-metaphorical-kansas" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How long can a fantasy novel stay in metaphorical Kansas?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/389835/logic-output-a-1-when-a-1-and-b-0" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Logic: Output a 1 when a = 1 and b = 0
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/120395/why-would-a-dystopian-government-promote-education-to-its-citizens-instead-of-i" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why would a Dystopian government promote education to its citizens, instead of ignorance?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/32714/did-ukraine-lose-half-its-gdp-because-of-sanctions-against-russia" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did Ukraine lose half its GDP because of sanctions against Russia?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/17253/is-it-acceptable-to-violate-table-manners-in-public-due-to-my-disability" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it acceptable to violate table manners in public due to my disability?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-skeptics" title="Skeptics Stack Exchange"></div><a href="https://skeptics.stackexchange.com/questions/41945/was-an-elderly-woman-forcibly-euthanized-in-the-netherlands" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:212 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Was an elderly woman forcibly euthanized in the Netherlands?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/17393/how-to-answer-a-technical-question-without-sounding-patronizing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to answer a technical question without sounding patronizing
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2874991/some-interesting-observations-on-a-sum-of-reciprocals" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Some interesting observations on a sum of reciprocals
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="https://cooking.stackexchange.com/questions/91453/is-it-safe-to-store-dry-food-products-under-the-sink" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it safe to store dry food products under the sink?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+
+<div id="feed-link">
+    <a href="/feeds/question/16082991" title="feed of this question and its answers">
+        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"/></svg>
+        question feed
+    </a>
+</div>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/16082991/ivc/b33e');});</script>
+<noscript><div><img src="/posts/16082991/ivc/b33e" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+
+                    
+                    <a href="https://stackoverflow.com"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"/><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"/></g></svg></a>
+                </div>
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                            <li class="-item"><a href="/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" 
+                                                 data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]"
+                                                 data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Engagement</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"/></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine&#174; CMS">ExpressionEngine&#174; Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Portugu&#234;s</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores y profesionales de la inform&#225;tica">Stack Overflow en espa&#241;ol</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (30)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo &#169; 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2018.8.7.31266</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+            <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled
+            <img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno">
+        </div>
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ]
+                });
+
+
+
+                    StackExchange.ga.setDimension('dimension2', '|vim|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+            
+    </body>
+    </html>
