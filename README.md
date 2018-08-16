@@ -72,6 +72,7 @@ Basic movements:
 ## Info on file
 
 * `c-g` "displays the current file name
+* `:%s/^@//n` "counts how many lines start with the character @
 
 
 ## Keymaps
@@ -319,3 +320,4 @@ vimi(){
 * `:g/def /#` "gives a list of functions in a python source
 * `:g/^$/d` " deletes all blank lines, useful especially when some
             " lines are selected visually
+
