@@ -69,6 +69,9 @@ Basic movements:
 * `!!`: gives me an input line for a shell command
 * `J`: join lines
 * `i<c-m>`: split lines
+* `~`: swap case of current character under cursor
+* `gu`: changes to lowercase the current word with guw and a line with guu
+* `gU`: changes to uppercase the current word with gUw and a line with gUU
 
 
 ## Motions
@@ -151,13 +154,6 @@ since recursive mappings nowadays with all these plugins existing,
 could cause problems.
 
 
-## Common Options
-
-```vim
-syntax on "this enables syntax highlighting
-filetype plugiin indent on "enables indenting depending on the kind of file
-```
-
 ## Working with registers
 
 We can inspect registers with:
@@ -167,22 +163,49 @@ We can inspect registers with:
 ```
 
 In insert mode, we can paste the content of a register, simply by issuing:
-
 ```vim
-c-r register_identifier
+`c-r register_identifier`
 ```
+
+Things we yank are automatically placed in the `0` register, so this is
+not overwritten by delete commands like `dd`.
+
+Anyway let's see how to select registers and work with them.
+
+`"<letter>` selects a register denoted with <letter>, let's say
+for example we want to copy a letter to register `a`, we can do this
+by doing:
+`"ayiw`
+and we can paste the content from this register by doing:
+`"ap`
+We can append content to register `a` by woking on register `A`, so
+we could add another word in the content of `a` by doing:
+`"Ayiw`
+and pasting the content of `a` with:
+`"ap`
+
+Always remember that uppercase registers are used to append content to lowercase
+registers.
+
+If vim is compiled with *clipboard* extension option we can work with graphical
+clipboards, specifically with registers `+` (the one we commonly work with
+copy/paste or ctrl-c, ctrl-v) and `*` (we can paste content from `*` by using
+the middle mouse button).
+
 
 ## Visual Modes
 
 There are three main visual modes:
 
-* v
-* V
-* c-v
+* `v` character-wise selection mode
+* `V` line-wise selection mode
+* `c-v` block-wise selection mode
 
-we can change a block of text by doing:
+We can flexibly switch between these selection modes, and go
+from one extremity of selection to the other by using `o`.
+We can change a block of text by doing:
 
-c-v "then we select the text we are interested in c text we want to insert <esc>
+`c-v` "then we select the text we are interested in c text we want to insert <esc>
 
 instead of pressing `c` after the selection we could also have typed:
 * I "to insert before text
@@ -198,6 +221,38 @@ for exaample:
 * `\`>`, after a selection moves the cursor at the end of the last selection
 * `\`<`, after a selection moves the cursor at the beginning of the last selection
 
+Notice that we can combine registers and visual mode selections to
+perform complex yanking and pasting operations.
+
+For example let's say that we have a sequence of numbered lines from 1 to 10,
+like a sequence of lines generated with the bash shell command `seq 10`
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+Now we can create a register which will contain lines from 2 to 5 and from 7 to
+9. We can do this by issuing:
+
+`gg` "goes to the beginning of file
+`/2<CR>` goes on line 2
+`V` enters in line-wise visual mode
+`/5<CR>` goes to line with 5
+`"ay` pastes the content in register a
+`/7<CR>` goes on line 7
+`V` enters in line-wise visual mode
+`/9<CR>` goes to line with 5
+`"Ay` appends the content in register a
+
+Now we can paste text with a simple `"ap`.
 
 
 ## Inserting text from files or commands
@@ -225,9 +280,18 @@ Another way to print the output from a command is:
 
 Vim has three ways of viewing files:
 
-* A buffer is the in-memory text of a filee
-* A window is a viewport on a buffer
+* A buffer is the in-memory text of a file, so it is a file loaded in memory
+* A window is a viewport on a buffer, so on an in-memory loaded file
 * A tab page is a collection of windows
+
+The workflow in vim is different from other common GUI applications,
+indeed in vim a tab is just a collection of windows, the concept of tab
+is more similar to the concept of gnu/linux virtual desktops.
+
+For example if we are working in vim on a project and suddenly something happens
+and we have to work on another small thing related to another project, this may
+be a use case for using a new tab.
+So tabs help us organizing workspaces.
 
 We can do `:help windows` to have more info.
 
@@ -266,13 +330,15 @@ Most of the commands related to windows start with c-w, so:
 * `c-w v` "opens a new same split vertically; also :vs
 * `c-w w` "cycles through open available windows
 * `c-w c` "closes the current window
+* `c-w o` "close every window in the current tabview but the current one
 * `c-w r` "swaps the position of windows
 * `c-w t` "break out current window into a new tabview
-* `c-w o` "close every window in the current tabview but the current one
 * `c-w +` "increase size of the current window
 * `c-w -` "decrease size of the current window
 * `c-w |` "maximize window vertically
 * `c-w _` "maximize window horizontally
+* `<count>c-w |` "increase window vertically by <count> lines
+* `<count>c-w _` "decrease window horizontally by <count> lines
 * `c-w =` "set all window to equal size
 * `c-w +` "increase size of the current window
 * `c-w H,J,K,L` "move a window in the direction of h,j,k,l
@@ -281,15 +347,23 @@ Most of the commands related to windows start with c-w, so:
 
 
 
-
-
 ### Tabs
 
-* :gt
-* :gT
-* :tabnew
-* :tabclose
+* :tabs             "visualize the list of current tabs
+* :tabnext          "or `:gt` or `tabn` switches to the next tab
+* :tabnext <count>  "or `:gt <count>` switches to the tab with id <count>
+* :tabprevious      "or `:gT` or `tabp` switches to the previous tab
+* :tabnew           "creates a new tab
+* :tabclose         "or `tabc` closes the current tab with all its windows
+* :tabedit          "or `tabe` closes the current tab with all its windows
+* :tabonly          "or `tabo` closes all the tabs but the current one
+* :tabmove          "or `tabm` changes the position of a tab, so with `:tabmove 0`
+                    "move the current tab at the beginning of the list on the left
+* `c-w t`           "break out current window into a new tabview
 
+
+this is a sentence of words and parenthesis ().
+Make this clear to everyone
 
 ## Sessions
 
@@ -428,6 +502,24 @@ whatever file with:
 vim -S myscript.vim textfile1 textfile2
 ```
 
+## Autocompletion
+
+* `c-x c-f` "autocompletion for file names
+
+
+A very nice trick with autocompletion is to press c-n c-p
+to havee a real-time filtering list an works with any kind
+of autocompletion. This is very useful when we have a lot
+of suggestions, e.g., like 20 or more suggestions and we may
+be confused with all that text, so in this case we can just press
+c-n c-p and type some text to filter.
+
+For example, let's say we want to filter on some filename and we
+are currently in a directory with a lot of files, we can do:
+`c-x c-f c-n c-p` and this will allow us to keep the list and type
+some text in order to have a better filter.
+
+
 ## Appendix A: Math
 
 On a number we can do:
@@ -490,8 +582,10 @@ You can use in your vimrc those commands:
 
 `set ignorecase` - All your searches will be case insensitive
 `set smartcase`  - Your search will be case sensitive if it contains an
-                   uppercase letter
-
-You need to set ignorecase if you want to use what smartcase provides. 
+                   uppercase letter.
+                   Notice that we need to set ignorecase if you want to use what 
+                   smartcase provides. 
+`syntax on` - this enables syntax highlighting
+`filetype plugin` -  indent on "enables indenting depending on the kind of file
 
 
