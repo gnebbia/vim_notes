@@ -532,6 +532,10 @@ expression by typing:
 Remember that the Ctrl-r combination in insert mode allows us to insert the
 content of a register and the register `/` contains the last searched string.
 
+Notice that many times we will use the very magic mode `\v` in order to have a 
+behaviour similar to POSIX Extended Regular Expressions (ERE) or *egrep*, or
+the very non magic mode `\V` to have a behaviour similar to `fgrep`, with the
+ability to use regex capabilities only by escaping every character.
 
 ## Navigate through the docs
 
