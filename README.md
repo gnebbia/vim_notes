@@ -112,6 +112,18 @@ Basic movements:
 * `/search\c` "Search with case insensitive
 * `/search\C` "Search with case sensitive
 
+If our cursor is on a word we can search for the next
+occurrence with `*` and for the previous occurrence
+with `#`.
+Also, if we are with our cursor on a word this word automatically 
+gets in our register and we can paste it in the Ex command line with
+`c-r c-w`. 
+Also notice that if we used `*` or `#` we don't need to reinsert that
+pattern in our search, so we could simply do:
+`:%s//newcontent/gc`
+and it will substitute the every occurrence of the word we used with
+`*` or `#`.
+
 
 ### Search in multiple files
 
@@ -253,6 +265,56 @@ Now we can create a register which will contain lines from 2 to 5 and from 7 to
 `"Ay` appends the content in register a
 
 Now we can paste text with a simple `"ap`.
+
+
+## Ex Commands
+
+* `q/` "opens the command line window with history of searches
+* `q:` "opens the command line window with history of Ex commands
+* `c-f` "swtich from command line mode to the command line window
+
+Let's see now some examples of Ex commmands, for someone
+who is already used to sed it will be easy to memorize or use
+vim Ex commands.
+
+`:12`                     "moces cursor to line number 12
+`:p`                      "prints the current line, the one the cursor is on
+`:10,22p`                 "prints lines from 10 to 22
+`:10,22w filename.txt`    "saves lines from 10 to 22 to a file called *filename.txt*
+`:d`                      "deletes the current line, the one the cursor is on
+`:1,7d`                   "deletes lines from 1 to 7
+`:/match1/,/match2/p`     "prints lines between lines who match match1 and match2
+`:$`                      "moves cursor to last line
+`:12,$p`                  "prints lines from 12 to end of file
+`:/BEGIN/,/END/p`         "prints in a window the content between BEGIN and END
+                          "lines including the lines which match BEGIN or END
+`:g/BEGIN/,/END/p`        "prints in a window the content between BEGIN and END
+                          "lines including the lines which match BEGIN or END
+                          "it does that for all the occurrences and not only
+                          "for the next one as with th previous Ex command
+`:s/pattern1/pattern2/`   "performs a substitution on current line once
+`:%s/pattern1/pattern2/`  "performs a substitution on current buffer once per line
+
+`:s/pattern1/pattern2/g`  "performs a substitution on current line for all occurrences
+`:%s/pattern1/pattern2/g` "performs a substitution on current buffer for all occurrences
+
+
+We can also use offsets:
+
+`:/BEGIN/+1,/END/-1p`     "prints in a window the content between BEGIN and END
+                          "lines excluding the lines which match BEGIN or END
+`:g/BEGIN/+1,/END/-1p`    "prints in a window the content between BEGIN and END
+                          "lines excluding the lines which match BEGIN or END
+                          "it does that for all the occurrences and not only
+                          "for the next one as with th previous Ex command
+
+We can also use marks -- this is interesting -- so mark a line with `ma`
+then mark another line with `mb` and then for example save that into another
+file with:
+`:'a,'bw newfile.txt` 
+
+Of course this may also be more comfortable by using visual selection.
+
 
 
 ## Inserting text from files or commands
@@ -587,5 +649,5 @@ You can use in your vimrc those commands:
                    smartcase provides. 
 `syntax on` - this enables syntax highlighting
 `filetype plugin` -  indent on "enables indenting depending on the kind of file
-
+`set history=200` - stores 200 ex commands instead of 20 which is the default
 
