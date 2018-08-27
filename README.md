@@ -85,6 +85,8 @@ Basic movements:
 * `G`  "go to end of file
 * `0`  "go to the beginning of line
 * `$`  "go to the end of a line
+* `^`  "go to the first occurrence of text in line
+* `g_` "go to the last occurrence of text in line
 * `H`  "move cursor to the top of the currently visible page
 * `M`  "move cursor to the middle of the currently visible page
 * `L`  "move cursor to the bottom of the currently visible page
@@ -203,6 +205,35 @@ If vim is compiled with *clipboard* extension option we can work with graphical
 clipboards, specifically with registers `+` (the one we commonly work with
 copy/paste or ctrl-c, ctrl-v) and `*` (we can paste content from `*` by using
 the middle mouse button).
+
+
+We can append to other registers, e.g., the clipboard register with let:
+```vim
+You have to use
+
+:let @+ .= your_expression
+```
+TO REORGANIZE THE FOLLOWING PARAGRAPH
+see stackoverflow. The problem, as you have understood, is that you cannot
+capitalise the + character.
+
+For example, to add a line in your buffer to the clipboard, place the cursor on
+the line and yank it with yy. Then type 
+:let @+ .= @0 
+to run (:) the command let
+to append (.=) register (@) 0, which always holds the last yank, to register +
+which is a representation of the clipboard.
+
+For example, to add the string "abc" to the clipboard, type :let @+ .= 'abc'.
+
+(To change the X11 selection instead of the clipboard register + use register
+*).
+
+vim has a huge set of commands. If you plan to adopt it as your favourite editor
+it is worth putting some effort into knowing, at least superficially, some of
+them. Most vim users probably only use about a dozen commands and are not
+interested it its true potential. It's a pity, as such tools could significantly
+reduce their workload.
 
 
 ## Visual Modes
