@@ -56,7 +56,8 @@ Basic movements:
 * `<esc>`: go to normal mode
 * yy: copy line
 * `dd`: delete line or more precisely cut
-* `p`: paste laste copied thing
+* `p`: paste laste copied thing on a newline
+* `P`: paste laste copied thing here
 * `u`: undo
 * `<c-r>`: redo
 * `.`: repeat last command
@@ -94,6 +95,8 @@ Basic movements:
 * `c-u` "page up
 * `c-e` "scroll down one line
 * `c-y` "scroll up one line
+* `gp` "Just like "p", but leave the cursor just after the new text
+* `gP` "Just like "P", but leave the cursor just after the new text
 * `t <char>` "move the cursor just before the character indicated
 * `<n> t <char>` "move the cursor just before the nth occurrence of the 
                  "character indicated
@@ -105,6 +108,24 @@ Basic movements:
                  "string
 * `[[` "move the cursor to the previous textual section
 * `]]` "move the cursor to the next textual section
+
+We can also move the window with respect to the cursor, e.g.,:
+
+* `zz` "the cursor will be at the center of the screen
+* `z.` "the cursor will be at the center of the screen and the cursor will be
+       "put at the beginning of the line
+* `zt` "scroll the screen so the cursor is at the top
+* `zb` "scroll the screen so the cursor is at the bottom
+
+
+## Modify Text
+
+* `gq` "format lines to 'textwidth' length 
+* `o`  "insert newline below
+* `O`  "insert newline on current line
+* `I`  "moves cursor at the beginning of line and enters in insert mode
+* `A`  "moves cursor at the end of line and enters in insert mode
+
 
 
 ## Search and Replace
@@ -298,46 +319,76 @@ Now we can create a register which will contain lines from 2 to 5 and from 7 to
 Now we can paste text with a simple `"ap`.
 
 
+## Macros
+
+We can start recording a macro with `q<register>`, generally if we just need
+a fast macro we will use the `q` register, so we can do that with
+`qq`.
+
+We can look at the register as it was just another register so
+with `:regs` or in insert mode with `c-r <register>` or again
+with `echo @<register>`.
+
+In order to apply a macro we simply do `@<register>`.
+
+In order ot apply a macro in visual mode, we can simply do:
+
+1. select the visual area with whichever visual mode we prefer
+2. press `:`
+3. type `normal @q` if the macro is recorded in q, or whatever register
+
+if we want to just apply a macro like 100 times we can do:
+`100@<register>`
+
+
 ## Ex Commands
 
 * `q/` "opens the command line window with history of searches
 * `q:` "opens the command line window with history of Ex commands
 * `c-f` "swtich from command line mode to the command line window
+* `@:` "recall last ex command
 
 Let's see now some examples of Ex commmands, for someone
 who is already used to sed it will be easy to memorize or use
 vim Ex commands.
 
-`:12`                     "moces cursor to line number 12
-`:p`                      "prints the current line, the one the cursor is on
-`:10,22p`                 "prints lines from 10 to 22
-`:10,22w filename.txt`    "saves lines from 10 to 22 to a file called *filename.txt*
-`:d`                      "deletes the current line, the one the cursor is on
-`:1,7d`                   "deletes lines from 1 to 7
-`:/match1/,/match2/p`     "prints lines between lines who match match1 and match2
-`:$`                      "moves cursor to last line
-`:12,$p`                  "prints lines from 12 to end of file
-`:/BEGIN/,/END/p`         "prints in a window the content between BEGIN and END
-                          "lines including the lines which match BEGIN or END
-`:g/BEGIN/,/END/p`        "prints in a window the content between BEGIN and END
-                          "lines including the lines which match BEGIN or END
-                          "it does that for all the occurrences and not only
-                          "for the next one as with th previous Ex command
-`:s/pattern1/pattern2/`   "performs a substitution on current line once
-`:%s/pattern1/pattern2/`  "performs a substitution on current buffer once per line
-
-`:s/pattern1/pattern2/g`  "performs a substitution on current line for all occurrences
-`:%s/pattern1/pattern2/g` "performs a substitution on current buffer for all occurrences
+`:12`                       "moces cursor to line number 12
+`:p`                        "prints the current line, the one the cursor is on
+`:10,22p`                   "prints lines from 10 to 22
+`:10,22w filename.txt`      "saves lines from 10 to 22 to a file called *filename.txt*
+`:d`                        "deletes the current line, the one the cursor is on
+`:1,7d`                     "deletes lines from 1 to 7
+`:/match1/,/match2/p`       "prints lines between lines who match match1 and match2
+`:$`                        "moves cursor to last line
+`:12,$p`                    "prints lines from 12 to end of file
+`:sort`                     "sort all lines
+`:sort!`                    "sort all lines in reverse
+`:sort u`                   "sort all lines and remove duplicates
+`:g/^#/y A`                 "yanks all the lines starting with the character `#` in 
+                            "the register `a`
+`:g/pattern/z#.5|echo '=='` "shows all the occurrences of pattern with a context
+                            "of 5 lines separater by the sequence `==`
+`:w !sudo tee %`            "saves the file with root privileges 
+`:/BEGIN/,/END/p`           "prints in a window the content between BEGIN and END
+                            "lines including the lines which match BEGIN or END
+`:g/BEGIN/,/END/p`          "prints in a window the content between BEGIN and END
+                            "lines including the lines which match BEGIN or END
+                            "it does that for all the occurrences and not only
+                            "for the next one as with th previous Ex command
+`:s/pattern1/pattern2/`     "performs a substitution on current line once
+`:%s/pattern1/pattern2/`    "performs a substitution on current buffer once per line
+`:s/pattern1/pattern2/g`    "performs a substitution on current line for all occurrences
+`:%s/pattern1/pattern2/g`   "performs a substitution on current buffer for all occurrences
 
 
 We can also use offsets:
 
-`:/BEGIN/+1,/END/-1p`     "prints in a window the content between BEGIN and END
-                          "lines excluding the lines which match BEGIN or END
-`:g/BEGIN/+1,/END/-1p`    "prints in a window the content between BEGIN and END
-                          "lines excluding the lines which match BEGIN or END
-                          "it does that for all the occurrences and not only
-                          "for the next one as with th previous Ex command
+`:/BEGIN/+1,/END/-1p`       "prints in a window the content between BEGIN and END
+                            "lines excluding the lines which match BEGIN or END
+`:g/BEGIN/+1,/END/-1p`      "prints in a window the content between BEGIN and END
+                            "lines excluding the lines which match BEGIN or END
+                            "it does that for all the occurrences and not only
+                            "for the next one as with th previous Ex command
 
 We can also use marks -- this is interesting -- so mark a line with `ma`
 then mark another line with `mb` and then for example save that into another
@@ -346,6 +397,15 @@ file with:
 
 Of course this may also be more comfortable by using visual selection.
 
+
+
+## Folding
+
+* `zf` "Create fold from selected text
+* `zo` "Open current fold
+* `zc` "Close current fold
+* `zR` "Open all folds
+* `zM` "Close all folds
 
 
 ## Inserting text from files or commands
@@ -453,6 +513,10 @@ Most of the commands related to windows start with c-w, so:
 * :tabmove          "or `tabm` changes the position of a tab, so with `:tabmove 0`
                     "move the current tab at the beginning of the list on the left
 * `c-w t`           "break out current window into a new tabview
+* `:tab sp`         "splits the current window in a new tab, this is useful
+                    "everytime we are in a multi window environment and want
+                    "to full screen on a specific window, then we can exit
+                    "with `:wq`
 
 
 this is a sentence of words and parenthesis ().
@@ -657,6 +721,7 @@ programs like `figlet`.
 
 * Learn how to write a plugin for a specific language and have a template
 * Give perl capabilities for code evaluation directly in vim buffers
+* We can produce an html of the current file with `:TOhtml`
 * `ga` to show the equivalent ascii code of the character under cursor
 * Open command outputs in vim: `vim <(ls -la)`
 * Create in our shell rc file a `vimi` function which will work as the vim
@@ -670,6 +735,19 @@ vimi(){
         vim -i NONE -u NORC -U NONE -V1 -nNesS $1 -c'echo""|qall!'
     fi
 }
+```
+Notice that with a command launched like this, we will still have some
+unwanted output, this is due to the verbosity `V1` set to 1, for example
+if we try an input() function to take user input, we will see output
+printed twice, anyway we can use a workaround eploiting the silent 
+command, e.g., let's say we want to make the user enter a string and
+process it and print it back we can do:
+
+```vimscript
+echo "Enter your name..."
+silent let name = input("")
+" Do whatever processing to our string
+echo "You entered " . name
 ```
 
 
@@ -685,4 +763,6 @@ You can use in your vimrc those commands:
 `syntax on` - this enables syntax highlighting
 `filetype plugin` -  indent on "enables indenting depending on the kind of file
 `set history=200` - stores 200 ex commands instead of 20 which is the default
+`set textwidth=80` - sets the maximum characters per line at 80, we can format
+                    it by using gq format lines to 'textwidth' length 
 
