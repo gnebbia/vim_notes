@@ -631,6 +631,41 @@ Let's see some examples:
 
 The e flag in a substution warns if the pattern is not found.
 
+## Navigating the filesystem
+
+By default vim ships with netrw, which is a file manager with many
+features. This is also useful to edit files remotely via different
+protocols.
+
+Let's see how to let vim navigate through an ssh server:
+```sh
+vim scp://remoteuser@server.tld//absolute/path/
+```
+
+We can open netrw in different ways:
+
+* :E
+* :Sex "opens netrw in a horizontal split
+* :Vex "opens netrw in a vertical split on the right
+* :Vex "opens netrw in a vertical split on the left
+* :Sex "opens netrw in a horizontal split
+* :Tex "opens netrw in a new tab
+
+
+Inside netrw we can:
+
+* create a new file with `%`
+* create a new directory with `d`
+* remove a file with `D`
+* go to parent directory with `-`
+* open a file with Enter `<CR>`
+* open a file in a new window split `o`
+* open a file with an external program with `x`
+* change sorting with `s`
+* cycle between view modes `i`
+
+
+
 ## Miscellaneous
 
 * `:retab` converts all tabs to spaces
