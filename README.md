@@ -54,7 +54,8 @@ Basic movements:
 * `ZZ`: save file and quit
 * `i`: go to insert mode
 * `<esc>`: go to normal mode
-* yy: copy line
+* `R`: go to replace mode, useful when we want to edit without moving all the text
+* `yy`: copy line
 * `dd`: delete line or more precisely cut
 * `p`: paste laste copied thing on a newline
 * `P`: paste laste copied thing here
@@ -172,6 +173,7 @@ You can as well open the quickfix window with `:copen` and go through the result
 * `:%s/^@//n` "counts how many lines start with the character @
 * `g<c-g>` "shows detailed status on the current line/column/word
 * `:oldf` "lists recently opened files
+* `:scr`  "list of sourced file, this is instead useful to debug vim
 
 
 ## Keymaps
@@ -195,6 +197,10 @@ We can inspect registers with:
 
 ```vim
 :reg
+```
+or with:
+```vim
+:di
 ```
 
 In insert mode, we can paste the content of a register, simply by issuing:
@@ -496,7 +502,12 @@ Most of the commands related to windows start with c-w, so:
 * `c-w +` "increase size of the current window
 * `c-w H,J,K,L` "move a window in the direction of h,j,k,l
 * `c-w h,j,k,l` "select the next window in the direction of h,j,k,l
+* `c-w c-t`     "select window on top
+* `c-w c-b`     "select window on bottom
+* `:ball`     "opens each existing buffer in a window
 * `:only` "closes all the windows except the currently active one
+* `:windo <cmd>` "executes a command for each window
+
 
 
 
@@ -517,6 +528,8 @@ Most of the commands related to windows start with c-w, so:
                     "everytime we are in a multi window environment and want
                     "to full screen on a specific window, then we can exit
                     "with `:wq`
+* `:tabdo <cmd>`    "executes a command for each tab
+* `:tab ball`       "opens one tab per buffer
 
 
 this is a sentence of words and parenthesis ().
@@ -628,6 +641,8 @@ Let's see some examples:
 * `:argadd *.twig`   "Add twig files to the arglist
 * `:argdo %s/pattern/replace/ge | update` "Replace the occurence pattern by 
                                          replace in every files of the arglist
+* `argdo %s/foo/bar/gc` "performs all the substitutions in every file of the
+                         arglist
 
 The e flag in a substution warns if the pattern is not found.
 
@@ -645,24 +660,67 @@ vim scp://remoteuser@server.tld//absolute/path/
 We can open netrw in different ways:
 
 * :E
-* :Sex "opens netrw in a horizontal split
-* :Vex "opens netrw in a vertical split on the right
-* :Vex "opens netrw in a vertical split on the left
-* :Sex "opens netrw in a horizontal split
-* :Tex "opens netrw in a new tab
-
+* :Sex  "opens netrw in a horizontal split
+* :Vex! "opens netrw in a vertical split on the right
+* :Vex  "opens netrw in a vertical split on the left
+* :Sex  "opens netrw in a horizontal split
+* :Hex  "opens netrw in a horizontal split below
+* :Hex! "opens netrw in a horizontal split above
+* :Tex  "opens netrw in a new tab
+* :Lex  "opens netrw vertically full height on the left (only new vims)
+* :Lex! "opens netrw vertically full height on the right (only new vims)
 
 Inside netrw we can:
 
 * create a new file with `%`
 * create a new directory with `d`
+* rename a file `R`
 * remove a file with `D`
 * go to parent directory with `-`
+* go to previous directory inn history `u`
+* go to next directory in history `U`
 * open a file with Enter `<CR>`
-* open a file in a new window split `o`
+* open a file in a new horizontal split `o`
+* open a file in a new vertical split `v`
+* open a file in a new tab `t`
 * open a file with an external program with `x`
 * change sorting with `s`
+* reverse sorting order `r`
 * cycle between view modes `i`
+* refresh file list `c-l`
+* gives info on a file `qf`
+* toggles showing hidden files`gh`
+* toggle hidden files `a`
+* preview a file (this is useful because opens the file in the same window) `p` 
+* Toggle netrw banner `I` 
+
+
+### Useful Options for netrw
+
+In order to disable netrw automatic banner we can set:
+```vim
+let g:netrw_banner=0
+```
+
+## Differences
+
+We can enter the diff mode either by executing:
+
+```vim
+vimdiff file1.txt file2.txt
+```
+
+or within a vim editing session by using:
+
+* `:diffthis <filename>`  NUse this file for diff
+* `:diffoff!`             NExit diff mode
+* `:diffupdate`           NRe-scan files for diffs
+* `]c`                    NNext difference
+* `[c`                    NPrev difference
+* `dp`                    NDiff put 
+* `do`                    NDiff obtain
+* `:diffget`              VGet differences
+* `:diffput`              Put differences :diffput 
 
 
 
@@ -801,3 +859,8 @@ You can use in your vimrc those commands:
 `set textwidth=80` - sets the maximum characters per line at 80, we can format
                     it by using gq format lines to 'textwidth' length 
 
+
+
+to see which key code my terminal is sending to vim we have two ways:
+1. sed -n l "and then press the character we want
+2. from vim press c-v and then the character
