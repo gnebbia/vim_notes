@@ -347,6 +347,8 @@ if we want to just apply a macro like 100 times we can do:
 `100@<register>`
 
 
+We can repeat the last executed macro with `@@`.
+
 ## Ex Commands
 
 * `q/` "opens the command line window with history of searches
