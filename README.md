@@ -60,6 +60,7 @@ Basic movements:
 * `p`: paste laste copied thing on a newline
 * `P`: paste laste copied thing here
 * `u`: undo
+* `U`: undoes changes on the current line
 * `<c-r>`: redo
 * `.`: repeat last command
 * `n[command]`: repeat command n times
