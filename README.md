@@ -695,6 +695,7 @@ Inside netrw we can:
 * toggles showing hidden files`gh`
 * toggle hidden files `a`
 * preview a file (this is useful because opens the file in the same window) `p` 
+* close the preview window `C-W z`
 * Toggle netrw banner `I` 
 
 
