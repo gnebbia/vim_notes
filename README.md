@@ -646,6 +646,7 @@ Let's see some examples:
                                          replace in every files of the arglist
 * `argdo %s/foo/bar/gc` "performs all the substitutions in every file of the
                          arglist
+* `bufdo bd`            "closes all the buffers except the current one
 
 The e flag in a substution warns if the pattern is not found.
 
