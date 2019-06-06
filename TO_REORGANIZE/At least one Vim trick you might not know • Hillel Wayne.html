@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="I’ve been using Vim for eight years and am still discovering new things. This is usually seen as a Good Thing About Vim. In my head, though, it’s a failing of discoverability: I keep discovering new things because Vim makes it so hard to know what’s available.
+While people often talk about the beauty of modal editing or text objects, I don’t think that gets at the essence of Vim.">
+
+<meta property="og:title" content=" At least one Vim trick you might not know  • Hillel Wayne">
+<meta property="og:description" content="I’ve been using Vim for eight years and am still discovering new things. This is usually seen as a Good Thing About Vim. In my head, though, it’s a failing of discoverability: I keep discovering new things because Vim makes it so hard to know what’s available.
+While people often talk about the beauty of modal editing or text objects, I don’t think that gets at the essence of Vim.">
+<meta property="og:url" content="https://www.hillelwayne.com/post/intermediate-vim/">
+<meta property="og:site_name" content="Hillel Wayne">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Vim"><meta property="article:published_time" content="2019-05-31T00:00:00Z"><meta property="article:modified_time" content="2019-05-31T00:00:00Z"><meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hugo 0.37.1">
+
+  <title> At least one Vim trick you might not know  • Hillel Wayne</title>
+  <link rel="canonical" href="https://www.hillelwayne.com/post/intermediate-vim/">
+  
+  <link rel="icon" href="https://www.hillelwayne.com/favicon.ico">
+<link rel="stylesheet" href="At%20least%20one%20Vim%20trick%20you%20might%20not%20know%20%E2%80%A2%20Hillel%20Wayne_files/main.css"><link rel="stylesheet" href="At%20least%20one%20Vim%20trick%20you%20might%20not%20know%20%E2%80%A2%20Hillel%20Wayne_files/custom.css">
+</head>
+
+
+<body class="page type-post">
+  <div class="site">
+
+    <a class="screen-reader" href="#main">Skip to Content</a>
+
+    <header id="header" class="header-container">
+      <div class="header site-header">
+        <nav id="main-menu" class="main-menu-container" aria-label="Main Menu">
+  <ul class="main-menu">
+  <li>
+      <a href="https://www.hillelwayne.com/post/">Blog</a>
+    </li>
+  <li>
+      <a href="https://www.hillelwayne.com/talks/">Talks</a>
+    </li>
+  <li>
+      <a href="https://www.hillelwayne.com/consulting/">Workshops</a>
+    </li>
+  <li>
+      <a href="https://www.hillelwayne.com/about/">About</a>
+    </li>
+  <li>
+      <a href="https://www.hillelwayne.com/open-invite/">Open Invite</a>
+    </li>
+  <li>
+      <a href="https://www.apress.com/us/book/9781484238288">Practical TLA+</a>
+    </li>
+  
+  </ul>
+</nav>
+
+        <div class="header-info">
+          
+          <p class="site-title title">Hillel Wayne</p>
+          
+          <p class="site-description subtitle"></p>
+        </div>
+      </div>
+    </header>
+
+
+<main id="main" class="main">
+  <article class="entry" lang="en">
+    <header class="header-container">
+  <div class="header entry-header">
+    <div class="header-info">
+      <h1 class="title"> At least one Vim trick you might not know </h1>
+      
+
+    </div>
+    
+<div class="meta">
+  <div class="social-menu-container">
+  <nav aria-label="Social Menu">
+    <ul class="social-menu"><li>
+        <a href="mailto:hwayne@gmail.com" target="_blank" rel="noopener">
+          <span class="screen-reader">Contact via Email</span><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+  <polyline points="22,6 12,13 2,6"></polyline>
+  
+</svg>
+</a>
+      </li><li>
+        <a href="https://twitter.com/hillelogram" target="_blank" rel="noopener">
+          <span class="screen-reader">Open Twitter account in new tab</span><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+  
+</svg>
+</a>
+      </li><li>
+        <a href="https://github.com/hwayne" target="_blank" rel="noopener">
+          <span class="screen-reader">Open Github account in new tab</span><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</div>
+  <span class="posted-on"><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+  <line x1="16" y1="2" x2="16" y2="6"></line>
+  <line x1="8" y1="2" x2="8" y2="6"></line>
+  <line x1="3" y1="10" x2="21" y2="10"></line>
+  
+</svg>
+<span class="screen-reader">Posted on </span>
+  <time class="date" datetime="2019-05-31T00:00:00Z">May 31, 2019</time>
+</span>
+
+</div>
+
+
+  </div>
+</header>
+
+    
+    
+
+    <div class="entry-content">
+  
+
+<p>I’ve been using Vim for eight years and am still discovering new 
+things. This is usually seen as a Good Thing About Vim. In my head, 
+though, it’s a failing of discoverability: I keep discovering new things
+ because Vim makes it so hard to know what’s available.</p>
+
+<p>While people often talk about the beauty of modal editing or text 
+objects, I don’t think that gets at the essence of Vim. Vim is a 
+patchwork of subsystems crammed together with every crag of space 
+stuffed with extra special-purpose tooling. There’s over a hundred 
+different keystroke commands in Normal mode alone. That density is a big
+ part of what makes Vim so useful. When “show all matching tags for 
+keyword” is just <code>g]</code> then you’re much more likely to actually use it.</p>
+
+<p>In nondiscoverable systems we have to rely on guides to find useful 
+stuff. There aren’t that many for Vim, though. You have beginning 
+articles, like <code>ciw</code> and such.<sup class="footnote-ref" id="fnref:cia"><a href="#fn:cia">1</a></sup>
+ And you have expert articles that dive into subsystems. But nobody 
+really talks about those special purpose tricks, leading people to 
+stumble into stuff they needed for the past six years.</p>
+
+<p>This article is about some of the little tricks that I use in Vim. 
+None of them are deep dives, and I encourage you to learn more about 
+whatever’s interesting. They also aren’t connected to each other. But 
+that’s fine. In total, they’re more than enough to help a lot.</p>
+
+<h3 id="organization">Organization</h3>
+
+<p>There are- very roughly- two categories of Vim users. <strong>Purists</strong>
+ value Vim’s small size and ubiquitousness. They tend to keep 
+configuration to a minimum in case they need to use it on an unfamiliar 
+computer (such as during <code>ssh</code>). <strong>Exobrains</strong>, 
+on the other hand, stuff Vim full of plugins, functions, and homebrew 
+mappings in a vain attempt to pretend they’re using Emacs. If you took 
+away an exobrain’s vimrc they’d be completely helpless.</p>
+
+<p>As you can probably tell, I’m much more exobrain than purist. I’ve 
+divided the tricks into two sections based on whether or not it involves
+ adding mappings or settings to base Vim.</p>
+
+<h2 id="purist-vim">Purist Vim</h2>
+
+<p>I used the standard Vim help representations for modal commands, ie <code>&lt;cr&gt;</code> means pressing the enter key. In cases where you have to <code>:h</code> a specific string to get help, like <code>:h E676</code>, I put the help string in parenthesis.</p>
+
+<h3 id="misc-normal-commands">Misc Normal Commands</h3>
+
+<dl>
+<dt><code>":</code>, <code>@:</code></dt>
+<dd><code>":</code> is the register storing the last executed command. You can write <code>":p</code> to print it to the buffer. <code>@:</code> reruns the last command.</dd>
+<dt><code>"=</code></dt>
+<dd>The “expression” register. You can input any vimL expression here 
+and paste it, use with ctrl-R, etc. So you can paste in the local 
+timestamp by typing <code>"=strftime("%c")&lt;cr&gt;p</code>.</dd>
+<dt><code>mA</code>, <code>'A</code></dt>
+<dd><code>m{letter}</code> sets a mark at your cursor. Then <code>'{letter}</code>
+ will jump to that line. For lowercase letters this is per buffer, so 
+you can use it for navigation. For uppercase letters, it’s global: if 
+you’re not in the file with the <code>A</code> mark, <code>'A</code> will jump to that file. You can see all of your set marks with <code>:marks:</code>.</dd>
+<dt><code>ctrl-A</code> and <code>ctrl-X</code></dt>
+<dd>Increments and decrements the next number in the line, from the 
+cursor. This jumps to the number, so you can use it from anywhere. <code>10c-A</code> is a lot easier than <code>wwwwwciw20</code>.</dd>
+<dt><code>q:</code></dt>
+<dd>Opens a history of your previous commands. You can operate on them 
+like any Vim text, but changes aren’t saved. But you can run a modified 
+command with <code>&lt;CR&gt;</code>. This makes it really easy to quickly modify and rerun commands, or search for an old one to reuse.</dd>
+<dt><code>q/</code>, <code>q?</code></dt>
+<dd>Same as <code>q:</code>, except for searches.</dd>
+<dt><code>ctrl-I</code>, <code>ctrl-O</code></dt>
+<dd>Moves you to the next or previous location in the jumplist. Useful 
+for checking a quick thing and then backing right out. Really nice for 
+reading help files.</dd>
+</dl>
+
+<h3 id="macros">Macros</h3>
+
+<p>See <a href="https://www.hillelwayne.com/post/vim-macro-trickz/">this post</a> for a deep dive into using macros.</p>
+
+<h3 id="visual-mode">Visual Mode</h3>
+
+<dl>
+<dt><code>gv</code></dt>
+<dd>Selects the previous visual.</dd>
+<dt><code>v_o</code></dt>
+<dd>Goes to the other end of the visual block. Useful if you started one
+ line too low or something. In block mode, it goes to the opposite 
+diagonal corner: use <code>v_O</code> to go to the opposite horizontal corner.</dd>
+</dl>
+
+<h4 id="g-ctrl-a-ctrl-x">g ctrl-A / ctrl-X</h4>
+
+<p>In visual mode, ctrl-A just increments the first number on every line. <code>g ctrl-A</code>, on the other hand, will bump the increment by one for each matching line. This is much easier to explain with a table:</p>
+
+<table>
+  <thead> 
+    <tr>
+      <th><strong>selected</strong></th>
+      <th><code>ctrl-A</code></th>
+      <th><code>g ctrl-A</code></th>
+      <th><code>2 g ctrl-A</code></th>
+    </tr>     
+  </thead>
+
+  <tbody>
+    <tr>
+    <td><pre><code>a 0
+b 0
+c
+d 0 </code></pre></td>
+    <td><pre><code>a 1
+b 1
+c
+d 1 </code></pre></td>
+    <td><pre><code>a 1
+b 2
+c
+d 3 </code></pre></td>
+    <td><pre><code>a 2
+b 4
+c
+d 6 </code></pre></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="operators-v-v-c-v-h-o-v">operators: v, V, c-v (<code>:h o_v</code>)</h4>
+
+<p>You probably know about visual mode: v is character-wise, V is 
+line-wise, ctrl-V is blockwise. But the three can also be used as motion
+ operators, making the motion the corresponding -wise. For example, if 
+you have</p>
+
+<pre><code>abc
+abc
+abc
+</code></pre>
+
+<p>If you place your cursor on the top <code>b</code> and press <code>d2j</code>, it will delete all three lines. That’s because <code>j</code> is a linewise motion. If you instead pressed <code>d&lt;c-V&gt;2j</code>, it would convert the motion to blockwise and delete just the middle column of <code>b</code>s.</p>
+
+<p>One way I used to use this was with deleting to a search. Normally <code>d/</code> is an exclusive character motion. So I’ll use <code>dV/</code> to make it linewise and include the search-line in the deletion. There’s another way to do that, though:</p>
+
+<dl>
+<dt><code>/regex/{n}</code></dt>
+<dd>Makes the motion go to the <em>nth</em> line below the match, or above if <code>n</code> is negative. It also has the side effect of making the motion linewise. So you want to delete to the first line matching <code>regex</code> and include that line, you can do <code>d/regex//0</code>.</dd>
+</dl>
+
+<h3 id="ex-commands">Ex Commands</h3>
+
+<p>Ex commands are the stuff you write from the command mode, such as <code>:s</code>. Beyond substitution, there are a lot of other useful ways to use ex. All of these examples need a range, such as <code>%</code>.</p>
+
+<h4 id="g-regex-ex"><code>:g/regex/ex</code></h4>
+
+<p>Runs the <code>Ex</code> command only on the lines that match <code>regex</code>. So for example you can use <code>g/regex/d</code> to delete all the lines matching the regex. <code>v</code> is like <code>g</code> except it runs <code>ex</code> on all of the lines that <em>don’t</em> match <code>regex</code>.</p>
+
+<p>This becomes more powerful with norm and friends.</p>
+
+<h4 id="norm-vim"><code>:norm {Vim}</code></h4>
+
+<p>Acts as if you ran <code>{Vim}</code> on every single line in the range. For example, <code>g/regex/norm f dw</code> will delete the first word after the first space on every line matching <code>regex</code>. This is often much easier than using a macro.</p>
+
+<p><code>norm</code> obeys all of your mappings. For example, if you mapped <code>jk</code> to <code>&lt;esc&gt;</code> in insert mode, <code>norm I jk$diw</code> will prepend a space to the beginning of the line, <em>leave insert-mode</em>,
+ and then delete the last word on the line. I like this functionality a 
+lot, but if you’d prefer it not to use your mappings, you can use <code>norm!</code> instead.</p>
+
+<h4 id="co"><code>:co .</code></h4>
+
+<p>Copies the range to the current line. You can also do arbitrary points instead of <code>.</code>, such as <code>+3</code> or <code>'a</code>. <code>mv</code> moves it instead.</p>
+
+<h4 id="y-reg"><code>:y {reg}</code></h4>
+
+<p>Copies the range to the register <code>{reg}</code>. If <code>{reg}</code> is a capital register, this appends to the existing register. ie if we do</p>
+
+<pre><code>let @a = '' | %g/regex/y A
+</code></pre>
+
+<p>It will copy all lines matching <code>regex</code> in the entire file to <code>a</code>. This can help with extracting broken-up text from a file and copying it to the system clipboard (with <code>let @+ = @a</code>.)</p>
+
+<h4 id="windo-ex"><code>:windo {ex}</code></h4>
+
+<p>Runs <code>ex</code> on all windows. <code>:windo $</code> will scroll all windows to the bottom. There’s also <code>bufdo</code>, <code>cdo</code>, <code>tabdo</code>, etc.</p>
+
+<p>This works really well with <code>g</code> and <code>s</code>. If you want to replace every instance of <code>AA</code> with <code>BB</code> but want to check each substitution first, you can use <code>vimgrep AA</code> to load all matches into a quickfix, then <code>cdo s/AA/BB/cge</code> to find/replace all the matches.</p>
+
+<h2 id="exobrain-vim">Exobrain Vim</h2>
+
+<p>These are the stuff that requires persistent storage or you modifying
+ your Vim session. Hypothetically you could use them as a purist by 
+typing them in, but some of these are significant enough changes that go
+ against the purist spirit.</p>
+
+<p>I’m only including uncommon things here. Like a lot of people map <code>H</code> to <code>^</code>, so I don’t need to talk about that too. I also don’t need to talk about <code>vim-sensible</code> or <code>vim-surround</code>, and included only the more obscure plugins.</p>
+
+<p>If you’re constantly tweaking your vimrc, do yourself a favor and add a command for that:</p>
+
+<pre><code>command! Vimrc :vs $MYVIMRC
+</code></pre>
+
+<h3 id="settings">Settings</h3>
+
+<p>I put all my settings, maps, and functions into a single vimrc file. 
+Breaking it up into many files makes it harder to find what I’m looking 
+for.</p>
+
+<p>Most of the settings aren’t really Vim “tricks”. Best bet is to look at <a href="https://github.com/tpope/vim-sensible">vim-sensible</a>: almost everything there is good for your vimrc.</p>
+
+<dl>
+<dt><code>set lazyredraw</code></dt>
+<dd>Do not redraw screen in the middle of a macro. Makes them complete faster.</dd>
+<dt><code>set smartcase/ignorecase</code></dt>
+<dd>With both on, searches with no capitals are case insensitive, while searches with a capital characters are case sensitive.</dd>
+<dt><code>set undofile</code></dt>
+<dd>Persistent undo, even if you close and reopen Vim. Super great when combined with the undotree plugin.</dd>
+<dt><code>set foldcolumn={n}</code></dt>
+<dd>Makes folds visible in the sidebar. The higher n is, the more folds 
+are represented visually and the fewer are represented by a number.</dd>
+<dt><code>set suffixesadd={str}</code></dt>
+<dd><code>gf</code> normally is “goto file under cursor”, but requires you also have the file suffix in the string. <code>suffixesadd</code> also checks for files with that suffix. If you have <code>suffixesadd=.md</code>, then pressing <code>gf</code> on the string “foo” will look for files <code>foo</code> and <code>foo.md</code>.</dd>
+<dt><code>set inccommand=nosplit</code></dt>
+<dd><p>This is Neovim only. <code>inccommand</code> shows you in realtime what changes your ex command should make. Right now it only supports <code>s</code>, but even that is incredibly useful. If you type <code>:s/regex</code>, it will highlight what matches regex. If you then add <code>/change</code>, it will show all matches replaced with <code>change</code>. This works with all of the regex properties, include backreferences and groups.</p></dd>
+</dl>
+
+<h4 id="set-statusline-h-statusline"><code>set statusline</code> (<code>:h statusline</code>)</h4>
+
+<p>Specifies what appears in the bar at the bottom of each window. The 
+formatting here is a lot more complicated and finicky than other 
+settings, and explaining it would take a post of its own. In terms of <em>simple</em> tricks, there’s a couple of things we can do. First, Vim’s default statusline is</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><code class="language-vim" data-lang="vim"><span></span><span style="color: #f8f8f2">:</span><span style="color: #66d9ef">set</span> <span style="color: #f8f8f2">statusline=</span>%<span style="color: #f8f8f2">&lt;</span>%<span style="color: #66d9ef">f</span>\ %<span style="color: #66d9ef">h</span>%<span style="color: #66d9ef">m</span>%<span style="color: #66d9ef">r</span>%<span style="color: #f8f8f2">=</span>%<span style="color: #ae81ff">-14</span>.<span style="color: #f8f8f2">(</span>%<span style="color: #66d9ef">l</span><span style="color: #f8f8f2">,</span>%<span style="color: #66d9ef">c</span>%V%<span style="color: #f8f8f2">)</span>\ %P
+</code></pre></div>
+
+<p>The easiest thing to replace here is the <code>%P</code>, which shows the percentage you’re through the file. The statusline format reads <code>%{exp()}</code> as writing the result of <code>exp()</code>. So for markdown files, we can do things like</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><code class="language-vim" data-lang="vim"><span></span><span style="color: #f8f8f2">:</span><span style="color: #66d9ef">set</span> <span style="color: #f8f8f2">statusline=</span>%<span style="color: #f8f8f2">&lt;</span>%<span style="color: #66d9ef">f</span>\ %<span style="color: #66d9ef">h</span>%<span style="color: #66d9ef">m</span>%<span style="color: #66d9ef">r</span>%<span style="color: #f8f8f2">=</span>%<span style="color: #ae81ff">-14</span>.<span style="color: #f8f8f2">(</span>%<span style="color: #66d9ef">l</span><span style="color: #f8f8f2">,</span>%<span style="color: #66d9ef">c</span>%V%<span style="color: #f8f8f2">)</span>\ %{wordcount<span style="color: #f8f8f2">()</span>[\<span style="color: #e6db74">"words\"</span>]}
+</code></pre></div>
+
+<p>To replace the percentage with the document wordcount.</p>
+
+<p>You can also <code>set tabline</code>. If you don’t use tabs you can probably hack this to be a “global statusline”. Like you could do</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><code class="language-vim" data-lang="vim"><span></span><span style="color: #66d9ef">set</span> <span style="color: #f8f8f2">tabline=</span>%{strftime<span style="color: #f8f8f2">(</span><span style="color: #e6db74">'%c'</span><span style="color: #f8f8f2">)</span>}
+</code></pre></div>
+
+<p>To always show the date on top.</p>
+
+<h3 id="maps">Maps</h3>
+
+<p>I have a <em>lot</em> of maps.</p>
+
+<p>A lot of Vim’s prime real-estate is taken up by cruft. <code>s</code> saves one whole keystroke over doing just <code>cl</code>. <code>U</code> is the same as <code>u</code> except it does the undo as a new change, which is functionally useless. <code>Q</code> is identical to <code>gQ</code> and is a colossal trap, anyway. <code>Z</code> is only used for <code>ZZ</code> and <code>ZQ</code>. Heck, the Vim manual recommends rebinding things like <code>_</code> and <code>,</code>
+ to custom maps as “you probably never use them.” I’d much rather add 
+completely new tasks to my keyboard vs saving a couple keystrokes. Some 
+of the maps I have:</p>
+
+<dl>
+<dt><code>nnoremap Q @@</code></dt>
+<dd>Instead of stumbling into ex mode, repeat the last macro used.</dd>
+<dt><code>nnoremap s "_d</code></dt>
+<dd>Makes <code>s</code> (along with corresponding maps for <code>ss</code> and <code>S</code>) act like <code>d</code>,
+ except it doesn’t save the cut text to a register. Helps when I want to
+ delete something without clobbering my unnamed register.</dd>
+<dt><code>nnoremap &lt;c-j&gt; &lt;c-w&gt;j</code></dt>
+<dd>Move to window below. Corresponding maps for <code>h</code>, <code>k</code>, <code>l</code>. Makes using windows much easier.</dd>
+<dt><code>nnoremap &lt;leader&gt;e :exe getline(line('.'))&lt;cr&gt;</code></dt>
+<dd>Run the current line as if it were a command. Often more convenient than <code>q:</code> when experimenting.</dd>
+</dl>
+
+<h4 id="special-arguments-h-map-arguments">Special Arguments (<code>:h map-arguments</code>)</h4>
+
+<p>Writing <code>map &lt;buffer&gt; lhs rhs</code> makes the mapping 
+only for that buffer. This is really handle when combined with 
+autocommands, as a short-term shortcut, or when defining maps through a 
+function. Buffer maps have priority over global maps, meaning you can 
+override a general command with a more specifically-useful one.</p>
+
+<p>On every use <code>map &lt;expr&gt; {lhs} {expr}</code> evaluates <code>{expr}</code> and uses the return value as the end mapping. One simple use-case is conditional maps. I have</p>
+
+<pre><code>nnoremap &lt;expr&gt; k (v:count == 0 ? 'gk' : 'k')
+nnoremap &lt;expr&gt; j (v:count == 0 ? 'gj' : 'j')
+</code></pre>
+
+<p>Which makes <code>j</code> and <code>k</code> move by wrapped line <em>unless</em> I had a count, in which case it behaves normally. So I can navigate long paragraphs of prose without breaking things like <code>10j</code>.</p>
+
+<p><code>&lt;silent&gt;</code> is good if you are having mappings launch ex commands.</p>
+
+<h4 id="inoremaps">inoremaps</h4>
+
+<p>You can make maps in insert-mode with <code>inoremap</code>. Maps start in insert-mode, so <code>inoremap ;a aaaa</code> will type in ‘aaaa’ instead of ‘;a’. If you want to do something in normal mode, use <code>&lt;c-O&gt;</code>. IE if we have</p>
+
+<pre><code>inoremap ;1 &lt;c-o&gt;ma
+</code></pre>
+
+<p>then <code>;1</code> will set the <code>'a</code> mark at the point you are typing.</p>
+
+<p>I tend to use semicolons as my leader key for imaps, because I almost never need to follow a <code>;</code> with anything other than a space or a newline.</p>
+
+<h3 id="autocmd">autocmd</h3>
+
+<p>Autocommands are great for configuration. You usually configure them in the form</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><code class="language-vim" data-lang="vim"><span></span>augroup {name}
+  autocmd<span style="color: #f8f8f2">!</span> <span style="color: #75715e">" Prevents duplicate autocommands</span>
+  <span style="color: #66d9ef">au</span> {events} {<span style="color: #66d9ef">file</span> regex} {command}
+augroup END
+</code></pre></div>
+
+<p>Then whenever any of <code>{events}</code> happen in a file matching <code>{file regex}</code>, <code>{command}</code> fires. Events are listed under <code>:h event</code>. For example, if you do</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><code class="language-vim" data-lang="vim"><span></span>augroup every
+  autocmd<span style="color: #f8f8f2">!</span>
+  <span style="color: #66d9ef">au</span> <span style="color: #f8f8f2">InsertEnter</span> * <span style="color: #66d9ef">set</span> <span style="color: #f8f8f2">norelativenumber</span>
+  <span style="color: #66d9ef">au</span> <span style="color: #f8f8f2">InsertLeave</span> * <span style="color: #66d9ef">set</span> <span style="color: #f8f8f2">relativenumber</span>
+augroup END
+</code></pre></div>
+
+<p>Then Vim will turn off relativenumber only for insert mode.</p>
+
+<p>Writing <code>au {event} &lt;buffer&gt; {ex}</code> only applies the 
+autocommand to the buffer you are in. I sometimes use this for adding 
+short-term event handlers to a specific file.</p>
+
+<h4 id="bufnewfile-bufread"><code>BufNewFile,BufRead</code></h4>
+
+<p><code>BufNewFile</code> triggers when you create a new file, <code>BufRead</code>
+ when you open the buffer for the first time. These are commonly used to
+ add filetype-specific settings and mappings. One I have is</p>
+
+<pre><code>augroup md
+  autocmd!
+  au BufNewFile,BufRead *.md syntax keyword todo TODO
+  au BufNewFile,BufRead *.md inoremap &lt;buffer&gt; ;` ```&lt;cr&gt;&lt;cr&gt;```&lt;Up&gt;&lt;Up&gt;
+augroup END
+</code></pre>
+
+<p>This means for markdown files only, the string TODO is highlighted and typing <code>;</code>` in insert mode will add code fences.</p>
+
+<p>You can do much more complex things with autocommands. For example, adding an <code>au</code> for <code>BufWriteCmd</code>
+ will override the standard save, letting you put in custom logic. 
+That’s moving beyond the realm of “Vim tricks” and into the realm of 
+“dark magic”.</p>
+
+<h3 id="plugins">Plugins</h3>
+
+<p>Most people know about popular plugins like <code>vim-surround</code> and <code>NERDtree</code>. This is a list of some of the more obscure ones that I think are very useful.</p>
+
+<h4 id="undotree-https-github-com-mbbill-undotree"><a href="https://github.com/mbbill/undotree">Undotree</a></h4>
+
+<p>Most text editors have linear undo. If you make change A, undo it, 
+and then make change B, then A is lost forever. Vim, on the other hand, 
+stores the entire undo tree. <code>u</code> only undoes to a previous state in your current branch. <code>g-</code> moves to the previous <em>chronological</em> version of the code. You can see the list of undo leafs with <code>:undolist</code>.</p>
+
+<p>That format is hard to read, though, and we’re better off seeing the actual tree. That’s what <code>Undotree</code> does: it laets you pop open a nice ascii representation of the undo tree for easy navigation.</p>
+
+<h4 id="vim-swap-https-github-com-machakann-vim-swap"><a href="https://github.com/machakann/vim-swap">vim.swap</a></h4>
+
+<p>Gives you commands to swap arguments around, so you can replace <code>(a, f(b, c))</code> with <code>(f(b, c), a)</code> in a couple keystrokes. I regularly have to do edits like that, so this is a huge quality of life improvement for me.</p>
+
+<h4 id="neoterm-https-github-com-kassio-neoterm"><a href="https://github.com/kassio/neoterm">Neoterm</a></h4>
+
+<p>Puts a higher-level API around the neo/vim embedded terminal. Like <code>:T {text}</code> will send <code>{text}</code> to the terminal. Makes for nice REPLs.</p>
+
+<h2 id="todo"><code>" TODO {{{</code></h2>
+
+<p>There’s a lot that isn’t covered here because they’re too dense or 
+long, like writing functions or the syntax system. There’s also a lot I 
+don’t know yet. Here are some things that I plan on learning next:</p>
+
+<h3 id="preview-quickfix-and-list-windows">Preview, Quickfix, and List Windows</h3>
+
+<p>I’ll occasionally use tools that use these, but I don’t know how to manipulate them myself. I want to add quickfix errors to my <a href="https://github.com/hwayne/tla.vim/">TLA+ plugin</a>.
+ I also like the idea of putting auxilary information and callback 
+commands into a preview window. I see some possibilities that would be 
+hard to replicate in an IDE.</p>
+
+<h3 id="the-neovim-api">The Neovim API</h3>
+
+<p>Neovim has an extensive API for composing Vim with external programs.
+ So you can have a Python script send commands to a Neovim instance, or 
+control it through a server. I’ve seen some cool concept demos with 
+this, where people autocomplete based on what’s in their browser. It 
+just seems like a lot of fun!</p>
+
+<h3 id="text-objects">Text Objects</h3>
+
+<p>Never defined my own.</p>
+
+<hr>
+
+<p>Anyway, that’s a brief tour of some slightly-more-obscure Vim features. Hope you learned something useful!</p>
+<div class="footnotes">
+
+<hr>
+
+<ol>
+<li id="fn:cia">This used to say <code>cia</code> instead of <code>ciw</code>. That was a typo, not a reference to the <a href="https://wikileaks.org/ciav7p1/cms/page_3375350.html">CIA Vim tipsheet</a>.
+ <a class="footnote-return" href="#fnref:cia"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+</div>
+
+    
+<footer class="entry-footer-container">
+  <div class="entry-footer">
+  <div class="categories">
+  <span class="taxonomyTerm-icon"><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"></path>
+  
+</svg>
+</span>
+  <span class="screen-reader">Categories: </span><a class="category" href="https://www.hillelwayne.com/categories/programming">Programming</a></div>
+
+
+<div class="tags">
+  <span class="taxonomyTerm-icon"><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"></path>
+  <line x1="7" y1="7" x2="7" y2="7"></line>
+  
+</svg>
+</span>
+  <span class="screen-reader">Tags: </span><a class="tag" href="https://www.hillelwayne.com/tags/vim">Vim</a></div>
+
+
+
+  </div>
+</footer>
+
+
+  </article>
+  
+<nav class="entry-nav-container">
+  <div class="entry-nav"><div class="prev-entry">
+      <a href="https://www.hillelwayne.com/post/alan-kay/">
+        <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <line x1="20" y1="12" x2="4" y2="12"></line>
+  <polyline points="10 18 4 12 10 6"></polyline>
+  
+</svg>
+ Previous</span>
+        <span class="screen-reader">Previous post: </span>Alan Kay Did Not Invent Objects</a>
+    </div></div>
+</nav>
+
+  
+</main>
+
+    <footer id="footer" class="footer-container">
+      <div class="footer">
+        <div class="social-menu-container">
+  <nav aria-label="Social Menu">
+    <ul class="social-menu"><li>
+        <a href="mailto:hwayne@gmail.com" target="_blank" rel="noopener">
+          <span class="screen-reader">Contact via Email</span><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+  <polyline points="22,6 12,13 2,6"></polyline>
+  
+</svg>
+</a>
+      </li><li>
+        <a href="https://twitter.com/hillelogram" target="_blank" rel="noopener">
+          <span class="screen-reader">Open Twitter account in new tab</span><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+  
+</svg>
+</a>
+      </li><li>
+        <a href="https://github.com/hwayne" target="_blank" rel="noopener">
+          <span class="screen-reader">Open Github account in new tab</span><svg class="icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</div>
+        <div class="copyright">
+  <p>
+
+       © 2019 Hillel Wayne 
+  </p>
+</div>
+
+      </div>
+    </footer>
+
+  </div><script src="At%20least%20one%20Vim%20trick%20you%20might%20not%20know%20%E2%80%A2%20Hillel%20Wayne_files/main.js"></script>
+
+
+
+<style>#header + #content > #left > #rlblock_left
+{display:none !important;}</style></body></html>

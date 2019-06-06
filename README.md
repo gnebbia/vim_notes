@@ -129,6 +129,18 @@ We can also move the window with respect to the cursor, e.g.,:
 * `A`  "moves cursor at the end of line and enters in insert mode
 
 
+## Increase/Decrease Numbers
+
+Given a number we can:
+
+* `ctrl-a` increment it
+* `ctrl-z` decrement it
+
+We can create a list of increasing number starting from a list of zeros `0` by
+selecting the interested lines and pressing:
+* `g ctrl-a` creates an increasing list from the selected text (0, 1, 2, ...)
+* `2 g ctrl-a` creates an increasing list by 2 from the selected text (2, 4, 6, ...)
+
 
 ## Search and Replace
 
@@ -254,8 +266,7 @@ which is a representation of the clipboard.
 
 For example, to add the string "abc" to the clipboard, type :let @+ .= 'abc'.
 
-(To change the X11 selection instead of the clipboard register + use register
-*).
+(To change the X11 selection instead of the clipboard register + use register `*)`.
 
 vim has a huge set of commands. If you plan to adopt it as your favourite editor
 it is worth putting some effort into knowing, at least superficially, some of
@@ -353,6 +364,7 @@ We can repeat the last executed macro with `@@`.
 ## Ex Commands
 
 * `q/` "opens the command line window with history of searches
+* `q?` "opens the command line window with history of searches
 * `q:` "opens the command line window with history of Ex commands
 * `c-f` "swtich from command line mode to the command line window
 * `@:` "recall last ex command
@@ -604,7 +616,7 @@ Regular expressions in scripts should always specify one of \v, \m, \M, or \V, t
 immune to the user's 'magic' setting.
 
 The :substitute command has the :smagic and :snomagic alternate forms (the same as \m and \M), 
-so you can search and replace with %sno/regex/new_text/g. Alternatively, you might find it helpful 
+so you can search and replace with `%sno/regex/new_text/g`. Alternatively, you might find it helpful 
 to refine your regular expression by searching with /\v first, then you can insert your regular 
 expression by typing:
 
@@ -617,6 +629,13 @@ Notice that many times we will use the very magic mode `\v` in order to have a
 behaviour similar to POSIX Extended Regular Expressions (ERE) or *egrep*, or
 the very non magic mode `\V` to have a behaviour similar to `fgrep`, with the
 ability to use regex capabilities only by escaping every character.
+
+
+
+* `/regex/{n}` Makes the motion go to the nth line below the match, or above if 
+   n is negative. It also has the side effect of making the motion linewise.
+   So you want to delete to the first line matching regex and include that line,
+   you can do d/regex//0. 
 
 ## Navigate through the docs
 
