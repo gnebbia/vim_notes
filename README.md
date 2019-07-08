@@ -382,6 +382,10 @@ vim Ex commands.
 `:/match1/,/match2/p`         "prints lines between lines who match match1 and match2
 `:$`                          "moves cursor to last line
 `:12,$p`                      "prints lines from 12 to end of file
+`:.! <command>`               "is equivalent to pressing `!!` and substitutes
+                              "the current line with the output of the command
+`:%! <command>`               "substitutes the current entire buffer with the
+                              "output of the command
 `:sort`                       "sort all lines
 `:sort!`                      "sort all lines in reverse
 `:sort u`                     "sort all lines and remove duplicates
@@ -401,6 +405,8 @@ vim Ex commands.
 `:s/pattern1/pattern2/g`      "performs a substitution on current line for all occurrences
 `:%s/pattern1/pattern2/g`     "performs a substitution on current buffer for all occurrences
 `:%s/\%Vpattern1/pattern2/g`  "performs a substitution on current visual selection
+`:%! <command>`               "performs substitution of the entire buffer with
+                              "the output of command
 
 
 We can also use offsets:
