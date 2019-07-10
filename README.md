@@ -386,6 +386,10 @@ vim Ex commands.
                               "the current line with the output of the command
 `:%! <command>`               "substitutes the current entire buffer with the
                               "output of the command
+`:%!grep '^C'`                "removes from the file all the lines except the
+                              "ones respecting the mentioned regex
+`:%!grep -v '^C'`             "removes from the file all the lines who do not
+                              "respect the mentioned regex
 `:sort`                       "sort all lines
 `:sort!`                      "sort all lines in reverse
 `:sort u`                     "sort all lines and remove duplicates
@@ -903,3 +907,20 @@ to see which key code my terminal is sending to vim we have two ways:
 ```vim
 :w !sudo tee %
 ```
+
+### Opening everything in vim
+
+We can open basically everything in vim, by piping the launch of vim and passing
+as argument '-' which corresponds to the stdin.
+
+Let's see some examples:
+
+```sh
+man printf | vim -
+```
+
+or:
+```sh
+./whatever.sh | vim -
+```
+
