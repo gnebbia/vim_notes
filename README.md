@@ -924,3 +924,19 @@ or:
 ./whatever.sh | vim -
 ```
 
+
+### Converting/Encoding Strings in a vim file
+
+Let's say we have a list of strings ina file and we want to convert each string
+into base64, we can do this in vim by doing:
+```vim
+:%!xargs -n1 -I{} sh -c 'echo {} | base64'
+```
+
+Of course we can also decode a list of base64 encoded string by doing:
+```vim
+:%!xargs -n1 -I{} sh -c 'echo {} | base64'
+```
+
+
+
