@@ -647,6 +647,40 @@ ability to use regex capabilities only by escaping every character.
    So you want to delete to the first line matching regex and include that line,
    you can do d/regex//0. 
 
+
+Let's see some examples of useful regexes.
+
+When working with files organized in columns or tables, it's generally a good
+idea to use anchors, let's see an example:
+
+If we have a three columns file like this:
+
+```text
+0-1 1188 1.00
+1-2 883 0.70
+2-3 4674 3.90
+3-4 4220 3.50
+4-5 25998 21.90
+5-6 22924 19.30
+6-7 16193 13.60
+7-8 26463 22.20
+8-9 527 0.40
+9-10 15876 13.30 
+```
+We can substitute everything by just the second column like this:
+```vim
+:%s/^\S\+\s\+\(\S\+\)\s\+.*/\1/g
+```
+
+We can also move columns around by doing something like:
+```vim
+:%s/^\(\S\+\)\s\+\(\S\+\)\s\+.*/\2 \1/g
+```
+
+
+
+
+
 ## Navigate through the docs
 
 * :help or :h
@@ -924,6 +958,23 @@ or:
 ./whatever.sh | vim -
 ```
 
+### Renaming files with vim
+
+We can rename files by doing something like this:
+```sh
+\ls | vim -
+```
+
+then let's say we want to rename all .txt files into .md files, we can do this
+by typing:
+```vim
+:%s/.*/mv -i & &/g
+```
+at this point we can do:
+```vim
+:%s/\.txt$/.md/g
+```
+
 
 ### Converting/Encoding Strings in a vim file
 
@@ -937,6 +988,7 @@ Of course we can also decode a list of base64 encoded string by doing:
 ```vim
 :%!xargs -n1 -I{} sh -c 'echo {} | base64'
 ```
+
 
 
 
