@@ -164,7 +164,7 @@ and it will substitute the every occurrence of the word we used with
 `*` or `#`.
 
 
-### Search in multiple files
+## Search in multiple files
 
 Searching with `vimgrep` will populate the quickfix list (see :help quickfix and :help 
 quickfix-window in Vim) with the result of the search.
@@ -483,7 +483,7 @@ So tabs help us organizing workspaces.
 We can do `:help windows` to have more info.
 
 
-### Buffers
+## Buffers
 
 We can open a new buffer with:
 ```vim
@@ -508,7 +508,7 @@ We can switch between buffers also with
 * `c-^` this switches to the last accessed buffer
 * `<count>c-^` this switches to the buffer number count
 
-### Windows
+## Windows
 
 Most of the commands related to windows start with c-w, so:
 
@@ -539,7 +539,7 @@ Most of the commands related to windows start with c-w, so:
 
 
 
-### Tabs
+## Tabs
 
 * :tabs             "visualize the list of current tabs
 * :tabnext          "or `:gt` or `tabn` switches to the next tab
@@ -775,7 +775,7 @@ Inside netrw we can:
 * Toggle netrw banner `I` 
 
 
-### Useful Options for netrw
+## Useful Options for netrw
 
 In order to disable netrw automatic banner we can set:
 ```vim
@@ -947,13 +947,13 @@ to see which key code my terminal is sending to vim we have two ways:
 
 ## Appendix E: Other useful common stuff
 
-### Writing a file with root privileges
+## Writing a file with root privileges
 
 ```vim
 :w !sudo tee %
 ```
 
-### Opening everything in vim
+## Opening everything in vim
 
 We can open basically everything in vim, by piping the launch of vim and passing
 as argument '-' which corresponds to the stdin.
@@ -969,7 +969,7 @@ or:
 ./whatever.sh | vim -
 ```
 
-### Renaming files with vim
+## Renaming files with vim
 
 We can rename files by doing something like this:
 ```sh
@@ -987,7 +987,7 @@ at this point we can do:
 ```
 
 
-### Converting/Encoding Strings in a vim file
+## Converting/Encoding Strings in a vim file
 
 Let's say we have a list of strings ina file and we want to convert each string
 into base64, we can do this in vim by doing:
