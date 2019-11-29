@@ -31,6 +31,7 @@ Inside netrw we can:
 * go to previous directory inn history `u`
 * go to next directory in history `U`
 * open a file with Enter `<CR>`
+* exit netrw and go back to the file we were editing `<C-^>`
 * open a file in a new horizontal split `o`
 * open a file in a new vertical split `v`
 * open a file in a new tab `t`
@@ -42,7 +43,7 @@ Inside netrw we can:
 * gives info on a file `qf`
 * toggles showing hidden files`gh`
 * toggle hidden files `a`
-* preview a file (this is useful because opens the file in the same window) `p`
+* preview a file (this is useful because opens the file in another window) `p`
 * close the preview window `C-W z`
 * Toggle netrw banner `I`
 

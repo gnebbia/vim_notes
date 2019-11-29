@@ -25,8 +25,9 @@ We can open a new buffer with:
 ```
 We can inspect the list of buffers with:
 ```vim
-* :ls
-* :buffers
+:ls
+" or with
+:buffers
 ```
 
 ```vim
@@ -46,14 +47,14 @@ We can switch between buffers also with
 
 Most of the commands related to windows start with c-w, so:
 
-* `c-w n` "opens a new window with a new bufferbelow
+* `c-w n` "opens a new window with a new buffer below
 * `c-w s` "opens a new same split horizontally; also :sp
 * `c-w v` "opens a new same split vertically; also :vs
 * `c-w w` "cycles through open available windows
 * `c-w c` "closes the current window
 * `c-w o` "close every window in the current tabview but the current one
 * `c-w r` "swaps the position of windows
-* `c-w t` "break out current window into a new tabview
+* `c-w T` "break out current window into a new tabview
 * `c-w +` "increase size of the current window
 * `c-w -` "decrease size of the current window
 * `c-w |` "maximize window vertically

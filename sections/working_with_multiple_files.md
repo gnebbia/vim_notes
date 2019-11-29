@@ -14,5 +14,5 @@ Let's see some examples:
                          arglist
 * `bufdo bd`            "closes all the buffers except the current one
 
-The e flag in a substution warns if the pattern is not found.
+The `e` flag in a substitution warns if the pattern is not found.
 

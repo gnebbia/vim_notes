@@ -9,7 +9,7 @@ Let's see now some examples of Ex commmands, for someone
 who is already used to sed it will be easy to memorize or use
 vim Ex commands.
 
-`:12`                         "moces cursor to line number 12
+`:12`                         "moves cursor to line number 12
 `:p`                          "prints the current line, the one the cursor is on
 `:10,22p`                     "prints lines from 10 to 22
 `:10,22w filename.txt`        "saves lines from 10 to 22 to a file called *filename.txt*
