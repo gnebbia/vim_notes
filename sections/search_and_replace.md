@@ -1,4 +1,4 @@
-
+# Search for Text
 
 * `/mytext`   "A basic search for text 'mytext'
 * `/search\c` "Search with case insensitive
@@ -34,4 +34,10 @@ You can as well open the quickfix window with `:copen` and go through the result
                              "subdirectory
 
 
+## Fast way to Search and Replace
 
+Another cool pattern to use whenever we have to substitute a string in multiple
+places is to:
+- search for a string by using `/stringToSearch`;
+- press `cgn` and insert the text we want;
+- press . as many times as we want to substitute in places that we want;
