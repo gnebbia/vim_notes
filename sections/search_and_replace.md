@@ -27,10 +27,10 @@ results (instead of `n` and `N` respectively).
 
 You can as well open the quickfix window with `:copen` and go through the results.
 
-* `:vimgrep /pattern/ *` "search in every files of the working directory the word 'pattern'
-* `:vimgrep /pattern/ a.txt b.txt c.txt` "searches the word 'pattern' in the mentioned files
-* `vimgrep /pattern/ *.php` "will search 'pattern' in every php files
-* `vimgrep /pattern/ **/*.php` "will search 'pattern' in every php files in every directory and
+- `:vimgrep /pattern/ *` "search in every files of the working directory the word 'pattern'
+- `:vimgrep /pattern/ a.txt b.txt c.txt` "searches the word 'pattern' in the mentioned files
+- `vimgrep /pattern/ *.php` "will search 'pattern' in every php files
+- `vimgrep /pattern/ **/*.php` "will search 'pattern' in every php files in every directory and
                              "subdirectory
 
 
@@ -41,3 +41,10 @@ places is to:
 - search for a string by using `/stringToSearch`;
 - press `cgn` and insert the text we want;
 - press . as many times as we want to substitute in places that we want;
+
+## View all the results of search in a split frame
+
+This is useful especially when we want to list all the functions of a file
+indeed, in the case of a python file we can do:
+- `:g/def /`
+- `:g/def /#` this will also show line numbers
