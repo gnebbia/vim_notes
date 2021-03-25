@@ -1,3 +1,4 @@
+# vim visual modes
 
 There are three main visual modes:
 
@@ -59,3 +60,9 @@ Now we can create a register which will contain lines from 2 to 5 and from 7 to
 Now we can paste text with a simple `"ap`.
 
 
+We can also issue commands on the visual selected block, for example to add a character
+at the end of a block of lines we can do:
+
+    : norm A"
+
+This will add the double quotes to the and of every line selected.
